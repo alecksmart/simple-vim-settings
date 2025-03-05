@@ -53,6 +53,10 @@ call vundle#begin()
 
   " Highlight
   Plugin 'machakann/vim-highlightedyank'
+
+  " Start page :)
+  Plugin 'mhinz/vim-startify'
+
 call vundle#end()            " required
 
 " Re-enable filetype detection with plugins and indentation
