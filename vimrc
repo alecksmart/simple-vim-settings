@@ -25,7 +25,7 @@ call vundle#begin()
 
   " Multi-cursor support
   Plugin 'mg979/vim-visual-multi'
-
+  
   " Icons for files, etc.
   Plugin 'ryanoasis/vim-devicons'
 
@@ -37,7 +37,7 @@ call vundle#begin()
 
   " Parentheses coloring
   Plugin 'kien/rainbow_parentheses.vim'
-
+  
   " Indentation visualization
   Plugin 'Yggdroot/indentLine'
 
@@ -50,6 +50,9 @@ call vundle#begin()
 
   " Automatic matching pairs
   Plugin 'jiangmiao/auto-pairs'
+
+  " Highlight
+  Plugin 'machakann/vim-highlightedyank'
 call vundle#end()            " required
 
 " Re-enable filetype detection with plugins and indentation
@@ -63,8 +66,8 @@ if has("termguicolors")
 endif
 
 " Choose colorscheme
-colorscheme OceanicNext
-" colorscheme tokyonight
+"colorscheme OceanicNext
+colorscheme tokyonight
 
 " Set airline options
 let g:airline_powerline_fonts = 1
@@ -133,6 +136,10 @@ let g:rainbow_active = 5
 let g:indentLine_char = '|'
 let g:indentLine_fileTypeExclude = ['help', 'nerdtree', 'dashboard']
 
+" vim-highlightedyank Configuration:
+let g:highlightedyank_highlight_duration = 400
+let g:highlightedyank_highlight_group = 'IncSearch'
+
 " ============================================
 " Custom Mappings
 " ============================================
@@ -196,5 +203,6 @@ function! ShowCustomShortcuts()
   \ ])
   setlocal nomodifiable
   nnoremap <buffer> <Esc> :close<CR>
-  endfunction
-  nnoremap <leader>h :call ShowCustomShortcuts()<CR>
+endfunction
+nnoremap <leader>h :call ShowCustomShortcuts()<CR>
+
