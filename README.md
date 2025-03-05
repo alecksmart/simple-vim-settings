@@ -13,6 +13,8 @@ This repository contains a streamlined vim configuration with plugins and settin
   - [rainbow_parentheses.vim](https://github.com/kien/rainbow_parentheses.vim) – Colorful nested parentheses.
   - [indentLine](https://github.com/Yggdroot/indentLine) – Indentation visualization.
   - [auto-pairs](https://github.com/jiangmiao/auto-pairs) – Automatic matching of brackets, quotes, etc.
+  - [vim-highlightedyank](https://github.com/machakann/vim-highlightedyank) – Highlights yanked text briefly to help you see what was copied.
+  - [vim-startify](https://github.com/mhinz/vim-startify) – Provides a customizable start screen with recent files, sessions, and bookmarks.
 - **Enhanced editor settings** – syntax highlighting, smooth scrolling, smart indentation, and more.
 - **Custom mappings** – predefined shortcuts for navigation, file management, folding, and plugin functions.
 - **Custom help function** – displays a summary of available key mappings in a structured three-column layout.
@@ -78,6 +80,9 @@ Some of the key mappings include:
 - **Window & Tab Navigation**:
   - `<C-w> h/j/k/l`: Move between windows.
   - `gt` / `gT`: Navigate tabs.
+- **Additional Enhancements**:
+  - **vim-highlightedyank**: Yanked text is highlighted briefly.
+  - **vim-startify**: Presents a start screen with recent files and sessions when vim is opened.
 - **Custom Help**:
   - `<leader>h`: Display a help window with a summary of shortcuts.
 
@@ -89,5 +94,4 @@ Contributions, issues, and feature requests are welcome! Please check the [issue
 
 ## License
 
-This project is licensed under the MIT license.
-
+This project is licensed under the MIT License.
