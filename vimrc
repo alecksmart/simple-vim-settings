@@ -79,7 +79,7 @@ let g:airline#extensions#tabline#formatter = 'default'
 " Line numbering
 set number
 set relativenumber
-
+registersregistersregistersregistersregisters
 " Smooth Scrolling
 set scrolloff=5
 
@@ -106,7 +106,8 @@ set foldmethod=syntax
 set foldlevel=99  " open all folds by default
 
 " Clipboard Integration
-set clipboard=unnamedplus
+" set clipboard=unnamedplus
+set clipboard=
 
 " Backup & Swap File Options (optional)
 "set backup
