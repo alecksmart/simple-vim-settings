@@ -25,9 +25,9 @@ if [ -f "$VIMRC_FILE" ]; then
   echo "Backup created: ${VIMRC_FILE}.bak.${BACKUP_NUM}"
 fi
 
-# 3. Download new vimrc from the repo
+# 3. Download new vimrc from the repo (bypassing cache)
 echo "Downloading new vimrc from $VIMRC_URL..."
-curl -fsSL "$VIMRC_URL" -o "$VIMRC_FILE"
+curl -fsSL "${VIMRC_URL}?$(date +%s)" -o "$VIMRC_FILE"
 echo "New vimrc saved to $VIMRC_FILE."
 
 echo "Installation complete. Please start Vim and run :PluginInstall to install all plugins."
