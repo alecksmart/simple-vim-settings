@@ -79,7 +79,7 @@ let g:airline#extensions#tabline#formatter = 'default'
 " Line numbering
 set number
 set relativenumber
-registersregistersregistersregistersregisters
+
 " Smooth Scrolling
 set scrolloff=5
 
