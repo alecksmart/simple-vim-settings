@@ -63,8 +63,9 @@ if has("termguicolors")
 endif
 
 " Choose colorscheme
-"colorscheme OceanicNext
-colorscheme tokyonight
+" colorscheme OceanicNext
+" colorscheme tokyonight
+colorscheme molokai
 
 " Set airline options
 let g:airline_powerline_fonts = 1
