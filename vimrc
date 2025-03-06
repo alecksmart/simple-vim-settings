@@ -58,6 +58,9 @@ call vundle#begin()
   " Start page :)
   Plugin 'mhinz/vim-startify'
 
+  " Programming 
+  Plugin 'sheerun/vim-polyglot'
+
 call vundle#end()            " required
 
 " Re-enable filetype detection with plugins and indentation
