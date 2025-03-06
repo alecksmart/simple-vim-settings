@@ -31,6 +31,7 @@ curl -fsSL "${VIMRC_URL}?$(date +%s)" -o "$VIMRC_FILE"
 echo "New vimrc saved to $VIMRC_FILE."
 
 echo "Installing vim plugins..."
+vim +PluginClean! +qall
 vim +PluginInstall +PluginUpdate +qall
 
 echo "Installation complete. Peridically update plugins with 'vim +PluginUpdate +qall'"
