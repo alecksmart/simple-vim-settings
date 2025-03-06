@@ -17,20 +17,19 @@ call vundle#begin()
   Plugin 'tpope/vim-fugitive'
   Plugin 'mhinz/vim-signify'
 
-  " Color Schemes & Statusline
-  Plugin 'chriskempson/base16-vim'
-  Plugin 'mhartington/oceanic-next'
+  " Color Schemes, Themes & Statusline
+  " Plugin 'chriskempson/base16-vim'
+  " Plugin 'mhartington/oceanic-next'
   Plugin 'vim-airline/vim-airline'
-  Plugin 'vim-airline/vim-airline-themes'
+  " Plugin 'vim-airline/vim-airline-themes'
+  " Plugin 'ghifarit53/tokyonight-vim'
+  Plugin 'catppuccin/vim'
 
   " Multi-cursor support
   Plugin 'mg979/vim-visual-multi'
   
   " Icons for files, etc.
   Plugin 'ryanoasis/vim-devicons'
-
-  " Themes
-  Plugin 'ghifarit53/tokyonight-vim'
 
   " Git diff indicators in sign column
   Plugin 'airblade/vim-gitgutter'
@@ -78,12 +77,14 @@ if has("termguicolors")
 endif
 
 " Choose colorscheme
-"colorscheme OceanicNext
-colorscheme tokyonight
+" colorscheme OceanicNext
+" colorscheme tokyonight
+"   frappe latte mocha macchiato
+colorscheme catppuccin_frappe
 
 " Set airline options
 let g:airline_powerline_fonts = 1
-let g:airline_theme='oceanicnext'
+let g:airline_theme = 'catppuccin_macchiato'
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#formatter = 'default'
 
@@ -225,8 +226,8 @@ endfunction
 nnoremap <leader>h :call ShowCustomShortcuts()<CR>
 
 " Databases
-let g:dbs = {
-\  'project_postgres': 'postgres://postgres@localhost/mydb',
-\  'project_mysql': 'mysql://user:password@localhost/mydb'
-\}
+" let g:dbs = {
+" \  'project_postgres': 'postgres://postgres@localhost/mydb',
+" \  'project_mysql': 'mysql://user:password@localhost/mydb'
+" \}
 
