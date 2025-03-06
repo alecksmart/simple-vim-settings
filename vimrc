@@ -53,6 +53,7 @@ call vundle#begin()
 
   " Highlight
   Plugin 'machakann/vim-highlightedyank'
+  Plugin 'junegunn/limelight.vim'
 
   " Start page :)
   Plugin 'mhinz/vim-startify'
@@ -173,6 +174,9 @@ inoremap <A-k> <Esc>:m .-2<CR>==gi
 vnoremap <A-j> :m '>+1<CR>gv=gv
 vnoremap <A-k> :m '<-2<CR>gv=gv
 
+" -- Toggle limelight --
+nnoremap <leader>l :Limelight!!<CR>
+
 " -- Reopen last edited position in file --
 au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 
@@ -202,6 +206,9 @@ function! ShowCustomShortcuts()
   \ '=== Window & Tab Navigation',
   \ '  <C-w> h/j/k/l: Move between windows',
   \ '  gt/gT: Next/Previous tab',
+  \ '-------------------------------------------------------------',
+  \ '=== Visuals',
+  \ '  <leader>l: Toggle Limelight',
   \ '-------------------------------------------------------------',
   \ 'Press Esc to close this window.'
   \ ])
