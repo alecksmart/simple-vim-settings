@@ -63,8 +63,8 @@ call vundle#begin()
 
   " Database
   Plugin 'tpope/vim-dadbod'
+  Plugin 'kristijanhusak/vim-dadbod-completion'
   Plugin 'kristijanhusak/vim-dadbod-ui' 
-  " Plugin 'kristijanh/vim-dadbod-completion'
 call vundle#end()            " required
 
 " Re-enable filetype detection with plugins and indentation
@@ -226,7 +226,7 @@ nnoremap <leader>h :call ShowCustomShortcuts()<CR>
 
 " Databases
 let g:dbs = {
-\  'project_postgres': 'postgres://user:password@localhost/mydb',
+\  'project_postgres': 'postgres://postgres@localhost/mydb',
 \  'project_mysql': 'mysql://user:password@localhost/mydb'
 \}
 
