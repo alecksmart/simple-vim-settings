@@ -19,11 +19,13 @@ call vundle#begin()
 
   " Color Schemes, Themes & Statusline
   " Plugin 'chriskempson/base16-vim'
-  " Plugin 'mhartington/oceanic-next'
-  Plugin 'vim-airline/vim-airline'
-  " Plugin 'vim-airline/vim-airline-themes'
-  " Plugin 'ghifarit53/tokyonight-vim'
+  Plugin 'mhartington/oceanic-next'
+  Plugin 'ghifarit53/tokyonight-vim'
   Plugin 'catppuccin/vim'
+  Plugin 'rhysd/vim-color-spring-night'
+  Plugin 'phanviet/vim-monokai-pro'
+  Plugin 'vim-airline/vim-airline'
+  Plugin 'vim-airline/vim-airline-themes'
 
   " Multi-cursor support
   Plugin 'mg979/vim-visual-multi'
@@ -48,7 +50,7 @@ call vundle#begin()
   Plugin 'tpope/vim-commentary'
 
   " Automatic matching pairs
-  Plugin 'jiangmiao/auto-pairs'
+  " Plugin 'jiangmiao/auto-pairs'
 
   " Highlight
   Plugin 'machakann/vim-highlightedyank'
@@ -73,20 +75,40 @@ filetype plugin indent on
 " Terminal & Appearance Settings
 " ============================================
 if has("termguicolors")
+    let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+    let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
   set termguicolors
 endif
 
-" Choose colorscheme
-" colorscheme OceanicNext
-" colorscheme tokyonight
-"   frappe latte mocha macchiato
-colorscheme catppuccin_frappe
-
 " Set airline options
 let g:airline_powerline_fonts = 1
-let g:airline_theme = 'catppuccin_macchiato'
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#formatter = 'default'
+
+" Choose colorscheme
+" colorscheme OceanicNext
+"   let g:airline_theme='oceanicnext'
+"   let g:oceanic_next_terminal_bold = 1
+"   let g:oceanic_next_terminal_italic = 1
+
+" colorscheme tokyonight
+" let g:airline_theme = 'tokyonight'
+"   let g:tokyonight_style = 'storm' " available: night, storm
+"   let g:tokyonight_enable_italic = 1
+
+" colorscheme catppuccin_frappe " available: frappe, latte, mocha, macchiato
+" let g:airline_theme = 'catppuccin_macchiato' " available: frappe, latte, mocha, macchiato
+
+colorscheme spring-night
+let g:airline_theme = 'spring_night'
+  let g:spring_night_high_contrast = 1
+  let g:spring_night_cterm_italic = 1
+  let g:spring_night_cterm_bold = 1
+  let g:spring_night_highlight_terminal = 0
+
+" colorcheme monokai pro
+" colorscheme monokai_pro
+  " let g:airline_theme = 'monokai'
 
 " ============================================
 " General Editor Settings
