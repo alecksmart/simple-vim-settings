@@ -1,6 +1,3 @@
-Below is the updated README that includes information on the autocompletion plugin (coc.nvim) for macOS:
-
-```markdown
 # simple-vim-settings
 
 This repository contains a streamlined vim configuration with plugins and settings to enhance your vim experience. It is designed to be easily installed on any system using Vundle as the plugin manager. Many extra features are included as commented-out lines for quick enabling—simply uncomment them if you want to try additional functionalities.
@@ -104,6 +101,3 @@ Contributions, issues, and feature requests are welcome! Please check the [issue
 ## License
 
 This project is licensed under the MIT License.
-```
-
-This README now includes details on the autocompletion plugin (coc.nvim) that is conditionally loaded on macOS, along with the rest of your configuration features.
