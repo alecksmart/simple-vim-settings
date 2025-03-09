@@ -20,10 +20,12 @@ call vundle#begin()
   " Color Schemes, Themes & Statusline
   " Plugin 'chriskempson/base16-vim'
   Plugin 'mhartington/oceanic-next'
+  Plugin 'glepnir/oceanic-material'
   Plugin 'ghifarit53/tokyonight-vim'
   Plugin 'catppuccin/vim'
   Plugin 'rhysd/vim-color-spring-night'
   Plugin 'phanviet/vim-monokai-pro'
+  Plugin 'sts10/vim-pink-moon'
   Plugin 'vim-airline/vim-airline'
   Plugin 'vim-airline/vim-airline-themes'
 
@@ -66,6 +68,13 @@ call vundle#begin()
   Plugin 'tpope/vim-dadbod'
   Plugin 'kristijanhusak/vim-dadbod-completion'
   Plugin 'kristijanhusak/vim-dadbod-ui' 
+
+
+  if has("macunix")
+    " Add coc.vim for autocompletion (ensure this line is inside your Vundle block)
+    Plugin 'neoclide/coc.nvim', {'branch': 'release'}
+  endif
+
 call vundle#end()            " required
 
 " Re-enable filetype detection with plugins and indentation
@@ -86,10 +95,22 @@ let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#formatter = 'default'
 
 " Choose colorscheme
+
 " colorscheme OceanicNext
 "   let g:airline_theme='oceanicnext'
 "   let g:oceanic_next_terminal_bold = 1
 "   let g:oceanic_next_terminal_italic = 1
+
+" set background=dark
+" colorscheme oceanic_material
+"   let g:airline_theme='oceanicnext'
+"   " " let g:oceanic_material_transparent_background = 1
+"   let g:oceanic_material_background = 'ocean' " available: ocean, medium, deep, darker
+"   let g:oceanic_material_allow_bold = 1
+"   let g:oceanic_material_allow_italic = 1
+"   let g:oceanic_material_allow_underline = 1
+"   let g:oceanic_material_allow_undercurl = 1
+"   let g:oceanic_material_allow_reverse = 1
 
 " colorscheme tokyonight
 " let g:airline_theme = 'tokyonight'
@@ -99,16 +120,20 @@ let g:airline#extensions#tabline#formatter = 'default'
 " colorscheme catppuccin_frappe " available: frappe, latte, mocha, macchiato
 " let g:airline_theme = 'catppuccin_macchiato' " available: frappe, latte, mocha, macchiato
 
-colorscheme spring-night
-let g:airline_theme = 'spring_night'
-  let g:spring_night_high_contrast = 1
-  let g:spring_night_cterm_italic = 1
-  let g:spring_night_cterm_bold = 1
-  let g:spring_night_highlight_terminal = 0
+" colorscheme spring-night
+" let g:airline_theme = 'spring_night'
+"   let g:spring_night_high_contrast = 1
+"   let g:spring_night_cterm_italic = 1
+"   let g:spring_night_cterm_bold = 1
+"   let g:spring_night_highlight_terminal = 0
 
 " colorcheme monokai pro
 " colorscheme monokai_pro
   " let g:airline_theme = 'monokai'
+
+colorscheme pink-moon
+set background=dark
+let g:airline_theme = 'base16'
 
 " ============================================
 " General Editor Settings
@@ -209,6 +234,17 @@ nnoremap <leader>l :Limelight!!<CR>
 
 " -- Reopen last edited position in file --
 au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
+
+
+" -- Autocompletion settings
+  " After plugins are loaded (after call vundle#end()), set up omnifunc for coc:
+  autocmd BufEnter * setlocal omnifunc=coc#refresh
+
+  " Optionally, restrict autocompletion to specific filetypes:
+  " autocmd FileType html,css,javascript,node,typescript setlocal omnifunc=coc#refresh
+
+  " After installing, you can install language server extensions for coc:
+  " :CocInstall -sync coc-html coc-css coc-tsserver coc-json coc-eslint
 
 " ============================================
 " Custom Leader Shortcut Help (Three Columns + Plugin Headings)

@@ -30,9 +30,16 @@ echo "Downloading new vimrc from $VIMRC_URL..."
 curl -fsSL "${VIMRC_URL}?$(date +%s)" -o "$VIMRC_FILE"
 echo "New vimrc saved to $VIMRC_FILE."
 
+# 4. Install plugins using vim in headless mode
 echo "Installing vim plugins..."
 vim +PluginInstall +PluginUpdate +qall
 vim +PluginClean! +qall
+
+# 5. If running on mac, install coc.nvim extensions automatically
+if [[ "$(uname)" == "Darwin" ]]; then
+  echo "Detected macOS, installing coc.nvim extensions..."
+    vim -E -s +CocInstall\ -sync\ coc-html\ coc-css\ coc-tsserver\ coc-json\ coc-eslint +qall
+fi
 
 echo "Installation complete. Peridically update plugins with 'vim +PluginUpdate +qall'"
 
