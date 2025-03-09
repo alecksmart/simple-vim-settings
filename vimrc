@@ -244,7 +244,7 @@ if has("macunix")
 
   " Optionally, restrict autocompletion to specific filetypes:
   " autocmd FileType html,css,javascript,node,typescript setlocal omnifunc=coc#refresh
-
+  
   " Use Tab for completion navigation (if no mapping conflicts)
   inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
   inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
@@ -252,7 +252,7 @@ if has("macunix")
 endif
 
 " ============================================
-" Custom Leader Shortcut Help 
+" Custom Leader Shortcut Help (Three Columns + Plugin Headings)
 " ============================================
 function! ShowCustomShortcuts()
   new
