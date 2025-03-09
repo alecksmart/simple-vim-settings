@@ -39,6 +39,7 @@ You can install the vim configuration using the provided installation script. Th
 1. Install Vundle (if not already installed).
 2. Backup your existing `~/.vimrc` (creating numbered backups if needed).
 3. Download the new vimrc file from this repository and replace your existing `~/.vimrc`.
+4. Install autocompletion (MacOs only)
 
 ### Quick Install
 
