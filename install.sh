@@ -44,13 +44,9 @@ if [[ "$(uname)" == "Darwin" ]]; then
     exit 1
   fi
   echo "Node.js is installed. Building coc.nvim..."
-  if [ -d "$COC_DIR" ]; then
     cd "$COC_DIR"
     npm ci
     cd - >/dev/null
-  else
-    echo "Warning: coc.nvim directory not found in $HOME/.vim/bundle/"
-  fi
   echo "Installing coc.nvim extensions..."
   vim -E -s +CocInstall\ -sync\ coc-html\ coc-css\ coc-tsserver\ coc-json\ coc-eslint +qall
 fi

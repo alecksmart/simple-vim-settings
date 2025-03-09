@@ -237,14 +237,21 @@ au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g
 
 
 " -- Autocompletion settings
+
+if has("macunix")
   " After plugins are loaded (after call vundle#end()), set up omnifunc for coc:
   autocmd BufEnter * setlocal omnifunc=coc#refresh
 
   " Optionally, restrict autocompletion to specific filetypes:
   " autocmd FileType html,css,javascript,node,typescript setlocal omnifunc=coc#refresh
+  
+  :CocInstall -sync coc-html coc-css coc-tsserver coc-json coc-eslint
 
-  " After installing, you can install language server extensions for coc:
-  " :CocInstall -sync coc-html coc-css coc-tsserver coc-json coc-eslint
+  " Use Tab for completion navigation (if no mapping conflicts)
+  inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+  inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+  inoremap <silent><expr> <CR> pumvisible() ? coc#pum#confirm() : "\<CR>"
+endif
 
 " ============================================
 " Custom Leader Shortcut Help (Three Columns + Plugin Headings)
