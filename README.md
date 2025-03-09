@@ -1,6 +1,9 @@
-# Simple vim Settings
+Below is the updated README that includes information on the autocompletion plugin (coc.nvim) for macOS:
 
-This repository contains a streamlined vim configuration with plugins and settings to enhance your vim experience. It is designed to be easily installed on any system using Vundle as the plugin manager.
+```markdown
+# simple-vim-settings
+
+This repository contains a streamlined vim configuration with plugins and settings to enhance your vim experience. It is designed to be easily installed on any system using Vundle as the plugin manager. Many extra features are included as commented-out lines for quick enabling—simply uncomment them if you want to try additional functionalities.
 
 ## Features
 
@@ -15,6 +18,10 @@ This repository contains a streamlined vim configuration with plugins and settin
   - [auto-pairs](https://github.com/jiangmiao/auto-pairs) – Automatic matching of brackets, quotes, etc.
   - [vim-highlightedyank](https://github.com/machakann/vim-highlightedyank) – Highlights yanked text briefly to help you see what was copied.
   - [vim-startify](https://github.com/mhinz/vim-startify) – Provides a customizable start screen with recent files, sessions, and bookmarks.
+  - [vim-polyglot](https://github.com/sheerun/vim-polyglot) – Language pack with improved syntax and folding support.
+  - **coc.nvim** – *[macOS only]* Autocompletion and language server protocol integration for a modern coding experience.
+  - Additional plugins for databases and themes are also included.
+
 - **Enhanced editor settings** – syntax highlighting, smooth scrolling, smart indentation, and more.
 - **Custom mappings** – predefined shortcuts for navigation, file management, folding, and plugin functions.
 - **Custom help function** – displays a summary of available key mappings in a structured three-column layout.
@@ -83,6 +90,8 @@ Some of the key mappings include:
 - **Additional Enhancements**:
   - **vim-highlightedyank**: Yanked text is highlighted briefly.
   - **vim-startify**: Presents a start screen with recent files and sessions when vim is opened.
+- **Autocompletion** (*macOS only*):
+  - **coc.nvim** is automatically loaded and configured for autocompletion and language server integration.
 - **Custom Help**:
   - `<leader>h`: Display a help window with a summary of shortcuts.
 
@@ -95,3 +104,6 @@ Contributions, issues, and feature requests are welcome! Please check the [issue
 ## License
 
 This project is licensed under the MIT License.
+```
+
+This README now includes details on the autocompletion plugin (coc.nvim) that is conditionally loaded on macOS, along with the rest of your configuration features.
