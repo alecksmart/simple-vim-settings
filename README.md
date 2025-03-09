@@ -26,6 +26,14 @@ This repository contains a streamlined vim configuration with plugins and settin
 
 ## Installation
 
+## Pre-requisites
+
+1. MacOs: install _node.js_
+
+```bash
+ brew install node
+```
+
 You can install the vim configuration using the provided installation script. The script will:
 
 1. Install Vundle (if not already installed).
@@ -56,7 +64,7 @@ to install all the plugins.
 
 ### Autocompetion
 
-Autocompletion is added **only for MacOs** intentionally, make sure _node.js_ is installed before running the installation. : 
+Autocompletion is added **only for MacOs** intentionally, make sure _node.js_ is installed before running the installation.
 
 ## Repository Structure
 
