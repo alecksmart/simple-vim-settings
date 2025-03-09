@@ -26,7 +26,7 @@ This repository contains a streamlined vim configuration with plugins and settin
 
 ## Installation
 
-## Pre-requisites
+### Pre-requisites
 
 1. MacOs: install _node.js_
 
