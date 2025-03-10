@@ -1,91 +1,89 @@
 " ============================================
-" Basic Settings & Vundle Initialization
+" Basic Settings & vim-plug Initialization
 " ============================================
-set nocompatible              " be iMproved, required
+set nocompatible
 set encoding=UTF-8
 
-" Disable filetype detection while loading plugins
-filetype off
+" Install path for vim-plug plugins
+" By default, they'll be placed in ~/.vim/plugged/
+call plug#begin('~/.vim/plugged')
 
-" Set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-  " Let Vundle manage itself
-  Plugin 'VundleVim/Vundle.vim'
+" Let vim-plug manage itself
+Plug 'junegunn/vim-plug'
 
-  " Git & File Management
-  Plugin 'tpope/vim-fugitive'
-  Plugin 'mhinz/vim-signify'
+" Git & File Management
+Plug 'tpope/vim-fugitive'
+Plug 'mhinz/vim-signify'
 
-  " Color Schemes, Themes & Statusline
-  " Plugin 'chriskempson/base16-vim'
-  Plugin 'mhartington/oceanic-next'
-  Plugin 'glepnir/oceanic-material'
-  Plugin 'ghifarit53/tokyonight-vim'
-  Plugin 'catppuccin/vim'
-  Plugin 'rhysd/vim-color-spring-night'
-  Plugin 'phanviet/vim-monokai-pro'
-  Plugin 'sts10/vim-pink-moon'
-  Plugin 'vim-airline/vim-airline'
-  Plugin 'vim-airline/vim-airline-themes'
+" Color Schemes, Themes & Statusline
+" Plug 'chriskempson/base16-vim'
+Plug 'mhartington/oceanic-next'
+Plug 'glepnir/oceanic-material'
+Plug 'ghifarit53/tokyonight-vim'
+Plug 'catppuccin/vim'
+Plug 'rhysd/vim-color-spring-night'
+Plug 'phanviet/vim-monokai-pro'
+Plug 'sts10/vim-pink-moon'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 
-  " Multi-cursor support
-  Plugin 'mg979/vim-visual-multi'
-  
-  " Icons for files, etc.
-  Plugin 'ryanoasis/vim-devicons'
+" Multi-cursor support
+Plug 'mg979/vim-visual-multi'
 
-  " Git diff indicators in sign column
-  Plugin 'airblade/vim-gitgutter'
+" Icons for files, etc.
+Plug 'ryanoasis/vim-devicons'
 
-  " Parentheses coloring
-  Plugin 'kien/rainbow_parentheses.vim'
-  
-  " Indentation visualization
-  Plugin 'Yggdroot/indentLine'
+" Git diff indicators in sign column
+Plug 'airblade/vim-gitgutter'
 
-  " File explorers & Finders
-  Plugin 'preservim/nerdtree'
-  Plugin 'ctrlpvim/ctrlp.vim'
+" Parentheses coloring
+Plug 'kien/rainbow_parentheses.vim'
 
-  " Commenting
-  Plugin 'tpope/vim-commentary'
+" Indentation visualization
+Plug 'Yggdroot/indentLine'
 
-  " Automatic matching pairs
-  " Plugin 'jiangmiao/auto-pairs'
+" File explorers & Finders
+Plug 'preservim/nerdtree'
+Plug 'ctrlpvim/ctrlp.vim'
 
-  " Highlight
-  Plugin 'machakann/vim-highlightedyank'
-  Plugin 'junegunn/limelight.vim'
+" Commenting
+Plug 'tpope/vim-commentary'
 
-  " Start page :)
-  Plugin 'mhinz/vim-startify'
+" Automatic matching pairs
+" Plug 'jiangmiao/auto-pairs'
 
-  " Programming 
-  Plugin 'sheerun/vim-polyglot'
+" Highlight
+Plug 'machakann/vim-highlightedyank'
+Plug 'junegunn/limelight.vim'
 
-  " Database
-  Plugin 'tpope/vim-dadbod'
-  Plugin 'kristijanhusak/vim-dadbod-completion'
-  Plugin 'kristijanhusak/vim-dadbod-ui' 
+" Start page :)
+Plug 'mhinz/vim-startify'
 
+" Programming
+Plug 'sheerun/vim-polyglot'
 
-  if has("macunix")
-    " Add coc.vim for autocompletion (ensure this line is inside your Vundle block)
-    Plugin 'neoclide/coc.nvim', {'branch': 'release'}
-  endif
+" Database
+Plug 'tpope/vim-dadbod'
+Plug 'kristijanhusak/vim-dadbod-completion'
+Plug 'kristijanhusak/vim-dadbod-ui'
 
-call vundle#end()            " required
+" On macOS only, add coc.vim for autocompletion (release branch)
+if has("macunix")
+  Plug 'neoclide/coc.nvim', {'branch': 'release'}
+endif
+
+call plug#end()
 
 " Re-enable filetype detection with plugins and indentation
 filetype plugin indent on
+syntax on
 
 " ============================================
 " Terminal & Appearance Settings
 " ============================================
 if has("termguicolors")
-    let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
-    let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+  let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+  let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
   set termguicolors
 endif
 
@@ -129,7 +127,7 @@ let g:airline#extensions#tabline#formatter = 'default'
 
 " colorcheme monokai pro
 " colorscheme monokai_pro
-  " let g:airline_theme = 'monokai'
+"   let g:airline_theme = 'monokai'
 
 colorscheme pink-moon
 set background=dark
@@ -144,9 +142,6 @@ set relativenumber
 
 " Smooth Scrolling
 set scrolloff=5
-
-" Syntax highlighting (enabled via filetype plugin indent on)
-syntax on
 
 " Smart Indentation & Tabs
 set tabstop=2
@@ -172,9 +167,9 @@ set foldlevel=99  " open all folds by default
 set clipboard=
 
 " Backup & Swap File Options (optional)
-"set backup
-"set backupdir=~/.vim/backups
-"set noswapfile
+" set backup
+" set backupdir=~/.vim/backups
+" set noswapfile
 
 " Cursor Line Highlighting
 set cursorline
@@ -229,22 +224,17 @@ inoremap <A-k> <Esc>:m .-2<CR>==gi
 vnoremap <A-j> :m '>+1<CR>gv=gv
 vnoremap <A-k> :m '<-2<CR>gv=gv
 
-" -- Toggle limelight --
+" -- Toggle Limelight --
 nnoremap <leader>l :Limelight!!<CR>
 
 " -- Reopen last edited position in file --
 au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 
-
 " -- Autocompletion settings
-
 if has("macunix")
-  " After plugins are loaded (after call vundle#end()), set up omnifunc for coc:
+  " After plugins are loaded, set up omnifunc for coc:
   autocmd BufEnter * setlocal omnifunc=coc#refresh
 
-  " Optionally, restrict autocompletion to specific filetypes:
-  " autocmd FileType html,css,javascript,node,typescript setlocal omnifunc=coc#refresh
-  
   " Use Tab for completion navigation (if no mapping conflicts)
   inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
   inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
