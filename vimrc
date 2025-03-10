@@ -232,7 +232,7 @@ function! ShowCustomShortcuts()
   \ '  gt/gT: Next/Previous tab',
   \ '-------------------------------------------------------------',
   \ '=== Visuals',
-  \ '  <leader>l: Toggle Limelight',
+  \ '  <leader>l: Toggle Limelight | <leader>tm: Toggle table mode',
   \ '-------------------------------------------------------------',
   \ 'Press Esc to close this window.'
   \ ])
