@@ -1,52 +1,36 @@
 #!/usr/bin/env bash
+set -e
 
 # Variables
 VIMRC_FILE="$HOME/.vimrc"
 VIM_DIR="$HOME/.vim"
 VIMRC_URL="https://raw.githubusercontent.com/alecksmart/simple-vim-settings/refs/heads/main/vimrc"
 PLUG_INSTALLER="https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim"
+BACKUP_DIR="$HOME/.vimrc_backup"
 
-# 1. Backup existing ~/.vimrc (if it exists)
+# 1. Backup existing ~/.vimrc into a dedicated backup directory with a timestamp
 if [ -f "$VIMRC_FILE" ]; then
-  echo "Found existing $VIMRC_FILE, creating backup..."
-  BACKUP_NUM=1
-  while [ -f "${VIMRC_FILE}.bak.${BACKUP_NUM}" ]; do
-    BACKUP_NUM=$((BACKUP_NUM+1))
-  done
-  mv "$VIMRC_FILE" "${VIMRC_FILE}.bak.${BACKUP_NUM}"
-  echo "Backup created: ${VIMRC_FILE}.bak.${BACKUP_NUM}"
+  mkdir -p "$BACKUP_DIR"
+  TIMESTAMP=$(date +%Y%m%d-%H%M%S)
+  BACKUP_VIMRC="$BACKUP_DIR/vimrc-$TIMESTAMP"
+  echo "Found existing $VIMRC_FILE, moving it to $BACKUP_VIMRC..."
+  mv "$VIMRC_FILE" "$BACKUP_VIMRC"
 fi
 
-# 2. Backup existing ~/.vim directory (if it exists)
-if [ -d "$VIM_DIR" ]; then
-  echo "Found existing $VIM_DIR, creating backup..."
-  BACKUP_NUM=1
-  while [ -d "${VIM_DIR}.bak.${BACKUP_NUM}" ]; do
-    BACKUP_NUM=$((BACKUP_NUM+1))
-  done
-  mv "$VIM_DIR" "${VIM_DIR}.bak.${BACKUP_NUM}"
-  echo "Backup created: ${VIM_DIR}.bak.${BACKUP_NUM}"
-fi
-
-# 3. Create a fresh ~/.vim directory
-mkdir -p "$VIM_DIR"
-echo "Created a fresh $VIM_DIR"
-
-# 4. Download new .vimrc from the repo (bypassing cache)
+# 2. Download new .vimrc from the repo (bypassing cache)
 echo "Downloading new vimrc from $VIMRC_URL..."
 curl -fsSL "${VIMRC_URL}?$(date +%s)" -o "$VIMRC_FILE"
 echo "New vimrc saved to $VIMRC_FILE."
 
-# 5. Install vim-plug (plug.vim) into autoload
+# 3. Install vim-plug (plug.vim) into autoload (in ~/.vim/autoload)
 echo "Installing vim-plug..."
 curl -fLo "$VIM_DIR/autoload/plug.vim" --create-dirs "$PLUG_INSTALLER"
 
-# 6. Install plugins using vim-plug
-echo "Installing vim plugins with vim-plug..."
-vim -c "PlugInstall" -c "qall" < /dev/null 2>/dev/null 
+# 4. Update plugins if they already exist; otherwise, install them
+  echo "Updating vim plugins with vim-plug..."
+  vim -c "PlugUpdate" -c "qall" < /dev/null 2>/dev/null
 
-
-# 7. On macOS, install Node.js if missing, then build coc.nvim + install extensions
+# 5. On macOS, install Node.js if missing, then build coc.nvim and install extensions
 if [[ "$(uname)" == "Darwin" ]]; then
   echo "Detected macOS, checking for Node.js..."
   if ! command -v node >/dev/null 2>&1; then
@@ -70,7 +54,7 @@ if [[ "$(uname)" == "Darwin" ]]; then
   vim -c "CocInstall -sync coc-html coc-css coc-tsserver coc-json coc-eslint" -c "qall" < /dev/null 2>/dev/null
 fi
 
-# 8. Append colorscheme settings to the end of .vimrc
+# 6. Append colorscheme settings to the end of .vimrc
 echo "Appending colorscheme lines to $VIMRC_FILE..."
 {
   echo ""
