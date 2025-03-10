@@ -36,17 +36,30 @@ echo "Installing and updating vim plugins..."
 vim +PluginInstall +PluginUpdate +qall
 vim +PluginClean! +qall
 
-# 5. If running on mac, build coc.nvim and install extensions automatically.
+# 5. If running on macOS, build coc.nvim and install extensions automatically.
 if [[ "$(uname)" == "Darwin" ]]; then
   echo "Detected macOS, checking for Node.js..."
   if ! command -v node >/dev/null 2>&1; then
     echo "Error: Node.js is required for building coc.nvim. Please install Node.js and rerun the script."
     exit 1
   fi
-  echo "Node.js is installed. Building coc.nvim..."
+  echo "Node.js is installed."
+
+  # Ensure coc.nvim is actually present
+  if [ ! -d "$COC_DIR" ]; then
+    echo "coc.nvim directory not found. Attempting plugin install again..."
+    vim +PluginInstall +qall
+  fi
+
+  echo "Building coc.nvim (if package.json is present)..."
+  if [ -f "$COC_DIR/package.json" ]; then
     cd "$COC_DIR"
     npm ci
     cd - >/dev/null
+  else
+    echo "No package.json found in $COC_DIR, skipping npm install."
+  fi
+
   echo "Installing coc.nvim extensions..."
   vim -E -s +CocInstall\ -sync\ coc-html\ coc-css\ coc-tsserver\ coc-json\ coc-eslint +qall
 fi
