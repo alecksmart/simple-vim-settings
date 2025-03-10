@@ -1,10 +1,10 @@
 # simple-vim-settings
 
-This repository contains a streamlined vim configuration with plugins and settings to enhance your vim experience. It is designed to be easily installed on any system using Vundle as the plugin manager. Many extra features are included as commented-out lines for quick enabling—simply uncomment them if you want to try additional functionalities.
+This repository contains a streamlined vim configuration with plugins and settings to enhance your vim experience. It is designed to be easily installed on any system using **vim-plug** as the plugin manager. Many extra features are included as commented-out lines for quick enabling—simply uncomment them if you want to try additional functionalities.
 
 ## Features
 
-- **Vundle** – Plugin management for vim.
+- **vim-plug** – Modern, fast plugin management for vim.
 - **Popular plugins** such as:
   - [NERDTree](https://github.com/preservim/nerdtree) – File explorer.
   - [CtrlP](https://github.com/ctrlpvim/ctrlp.vim) – Fuzzy file finder.
@@ -12,7 +12,6 @@ This repository contains a streamlined vim configuration with plugins and settin
   - [vim-gitgutter](https://github.com/airblade/vim-gitgutter) – Git diff indicators.
   - [rainbow_parentheses.vim](https://github.com/kien/rainbow_parentheses.vim) – Colorful nested parentheses.
   - [indentLine](https://github.com/Yggdroot/indentLine) – Indentation visualization.
-  - [auto-pairs](https://github.com/jiangmiao/auto-pairs) – Automatic matching of brackets, quotes, etc.
   - [vim-highlightedyank](https://github.com/machakann/vim-highlightedyank) – Highlights yanked text briefly to help you see what was copied.
   - [vim-startify](https://github.com/mhinz/vim-startify) – Provides a customizable start screen with recent files, sessions, and bookmarks.
   - [vim-polyglot](https://github.com/sheerun/vim-polyglot) – Language pack with improved syntax and folding support.
@@ -28,18 +27,12 @@ This repository contains a streamlined vim configuration with plugins and settin
 
 ### Pre-requisites
 
-1. MacOs: install _node.js_
-
-```bash
- brew install node
-```
-
-You can install the vim configuration using the provided installation script. The script will:
-
-1. Install Vundle (if not already installed).
-2. Backup your existing `~/.vimrc` (creating numbered backups if needed).
-3. Download the new vimrc file from this repository and replace your existing `~/.vimrc`.
-4. Install autocompletion (MacOs only)
+- On **macOS**:
+  - If Node.js is not installed, the script will automatically install it via Homebrew (without prompt).
+  - If Homebrew itself is not installed, please install Homebrew first:
+    ```bash
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+    ```
 
 ### Quick Install
 
@@ -55,22 +48,25 @@ Alternatively, you can use `wget`:
 wget -qO- https://raw.githubusercontent.com/alecksmart/simple-vim-settings/main/install.sh | bash
 ```
 
-After installation, start vim and run:
+**What the script does**:
 
-```vim
-:PluginInstall
-```
+1. Backs up your existing `~/.vimrc` and `~/.vim` directories (renaming them, e.g. `~/.vimrc.bak.1` or `~/.vim.bak.1`).
+2. Creates a fresh `~/.vim` folder.
+3. Downloads the new `vimrc` from this repository and saves it as `~/.vimrc`.
+4. Installs [vim-plug](https://github.com/junegunn/vim-plug) into `~/.vim/autoload`.
+5. Runs `:PlugInstall` to install all listed plugins.
+6. **macOS only**: If Node.js is missing, installs it automatically via Homebrew, then runs `npm ci` to build `coc.nvim` and installs some default coc extensions (HTML, CSS, TS, JSON, and ESLint).
 
-to install all the plugins.
+When complete, open Vim to start using the new configuration.
 
-### Autocompetion
+## Autocompletion
 
-Autocompletion is added **only for MacOs** intentionally, make sure _node.js_ is installed before running the installation.
+Autocompletion is enabled **only for macOS** (intentionally). Make sure Node.js is installed (the script does this automatically if it’s missing). On non-mac platforms, you can remove or modify the coc.nvim plugin lines in `.vimrc` if desired.
 
 ## Repository Structure
 
 - **vimrc**: the vim configuration file. It is downloaded and installed as `~/.vimrc`.
-- **install.sh**: the installation script that installs Vundle, backs up any existing vimrc, and downloads the new configuration.
+- **install.sh**: the installation script that backs up any existing configuration, downloads the new configuration, installs **vim-plug**, and handles coc.nvim setup.
 
 ## Custom Key Mappings
 
@@ -98,7 +94,7 @@ Some of the key mappings include:
   - `<C-w> h/j/k/l`: Move between windows.
   - `gt` / `gT`: Navigate tabs.
 - **Additional Enhancements**:
-  - **vim-highlightedyank**: Yanked text is highlighted briefly.
+  - **vim-highlightedyank**: Yanked text is briefly highlighted.
   - **vim-startify**: Presents a start screen with recent files and sessions when vim is opened.
 - **Autocompletion** (*macOS only*):
   - **coc.nvim** is automatically loaded and configured for autocompletion and language server integration.
