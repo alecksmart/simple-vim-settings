@@ -43,8 +43,7 @@ curl -fLo "$VIM_DIR/autoload/plug.vim" --create-dirs "$PLUG_INSTALLER"
 
 # 6. Install plugins using vim-plug
 echo "Installing vim plugins with vim-plug..."
-vim -es +PlugInstall +qall </dev/null
-unbuffer vim +PlugInstall +qall </dev/null
+script -q /dev/null vim +PlugInstall +qall
 
 # 7. On macOS, install Node.js if missing, then build coc.nvim + install extensions
 if [[ "$(uname)" == "Darwin" ]]; then
