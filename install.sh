@@ -43,7 +43,8 @@ curl -fLo "$VIM_DIR/autoload/plug.vim" --create-dirs "$PLUG_INSTALLER"
 
 # 6. Install plugins using vim-plug
 echo "Installing vim plugins with vim-plug..."
-script -q /dev/null vim +PlugInstall +qall
+vim -c "PlugInstall" -c "qall" 
+
 
 # 7. On macOS, install Node.js if missing, then build coc.nvim + install extensions
 if [[ "$(uname)" == "Darwin" ]]; then
@@ -66,7 +67,7 @@ if [[ "$(uname)" == "Darwin" ]]; then
   fi
 
   echo "Installing coc.nvim extensions..."
-  vim -E -s +CocInstall\ -sync\ coc-html\ coc-css\ coc-tsserver\ coc-json\ coc-eslint +qall
+  vim -c "CocInstall -sync coc-html coc-css coc-tsserver coc-json coc-eslint" -c "qall" 
 fi
 
 # 8. Append colorscheme settings to the end of .vimrc
