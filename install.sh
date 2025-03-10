@@ -1,5 +1,4 @@
 #!/usr/bin/env bash
-set -e
 
 # Variables
 VIMRC_FILE="$HOME/.vimrc"
