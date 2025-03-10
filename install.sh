@@ -60,6 +60,7 @@ if [[ "$(uname)" == "Darwin" ]]; then
   if [ -d "$COC_DIR" ] && [ -f "$COC_DIR/package.json" ]; then
     echo "Building coc.nvim..."
     cd "$COC_DIR"
+    npm install
     npm ci
     cd - >/dev/null
   fi
