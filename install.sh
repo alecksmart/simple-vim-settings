@@ -51,10 +51,12 @@ if [[ "$(uname)" == "Darwin" ]]; then
     vim +PluginInstall +qall
   fi
 
-  echo "Building coc.nvim (if package.json is present)..."
+  # If package.json is present, install dependencies & build
   if [ -f "$COC_DIR/package.json" ]; then
+    echo "Building coc.nvim..."
     cd "$COC_DIR"
     npm ci
+    npm run build
     cd - >/dev/null
   else
     echo "No package.json found in $COC_DIR, skipping npm install."
