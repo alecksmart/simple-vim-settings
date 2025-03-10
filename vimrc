@@ -280,6 +280,3 @@ let g:airline#extensions#tabline#formatter = 'default'
 " colorscheme monokai_pro
 "   let g:airline_theme = 'monokai'
 
-"colorscheme pink-moon
-"set background=dark
-"let g:airline_theme = 'base16'

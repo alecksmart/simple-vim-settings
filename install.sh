@@ -69,6 +69,15 @@ if [[ "$(uname)" == "Darwin" ]]; then
   vim -E -s +CocInstall\ -sync\ coc-html\ coc-css\ coc-tsserver\ coc-json\ coc-eslint +qall
 fi
 
+# 8. Append the three lines to the end of .vimrc
+echo "Appending colorscheme lines to $VIMRC_FILE..."
+{
+  echo ""
+  echo "colorscheme pink-moon"
+  echo "set background=dark"
+  echo "let g:airline_theme = 'base16'"
+} >> "$VIMRC_FILE"
+
 echo "Installation complete!"
 echo "Please open Vim and enjoy your new configuration."
 
