@@ -69,7 +69,7 @@ if [[ "$(uname)" == "Darwin" ]]; then
   vim -E -s +CocInstall\ -sync\ coc-html\ coc-css\ coc-tsserver\ coc-json\ coc-eslint +qall
 fi
 
-# 8. Append the three lines to the end of .vimrc
+# 8. Append colorscheme settings to the end of .vimrc
 echo "Appending colorscheme lines to $VIMRC_FILE..."
 {
   echo ""

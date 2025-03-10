@@ -275,8 +275,3 @@ let g:airline#extensions#tabline#formatter = 'default'
 "   let g:spring_night_cterm_italic = 1
 "   let g:spring_night_cterm_bold = 1
 "   let g:spring_night_highlight_terminal = 0
-
-" colorcheme monokai pro
-" colorscheme monokai_pro
-"   let g:airline_theme = 'monokai'
-
