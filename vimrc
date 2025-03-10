@@ -79,61 +79,6 @@ filetype plugin indent on
 syntax on
 
 " ============================================
-" Terminal & Appearance Settings
-" ============================================
-if has("termguicolors")
-  let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
-  let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
-  set termguicolors
-endif
-
-" Set airline options
-let g:airline_powerline_fonts = 1
-let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tabline#formatter = 'default'
-
-" Choose colorscheme
-
-" colorscheme OceanicNext
-"   let g:airline_theme='oceanicnext'
-"   let g:oceanic_next_terminal_bold = 1
-"   let g:oceanic_next_terminal_italic = 1
-
-" set background=dark
-" colorscheme oceanic_material
-"   let g:airline_theme='oceanicnext'
-"   " " let g:oceanic_material_transparent_background = 1
-"   let g:oceanic_material_background = 'ocean' " available: ocean, medium, deep, darker
-"   let g:oceanic_material_allow_bold = 1
-"   let g:oceanic_material_allow_italic = 1
-"   let g:oceanic_material_allow_underline = 1
-"   let g:oceanic_material_allow_undercurl = 1
-"   let g:oceanic_material_allow_reverse = 1
-
-" colorscheme tokyonight
-" let g:airline_theme = 'tokyonight'
-"   let g:tokyonight_style = 'storm' " available: night, storm
-"   let g:tokyonight_enable_italic = 1
-
-" colorscheme catppuccin_frappe " available: frappe, latte, mocha, macchiato
-" let g:airline_theme = 'catppuccin_macchiato' " available: frappe, latte, mocha, macchiato
-
-" colorscheme spring-night
-" let g:airline_theme = 'spring_night'
-"   let g:spring_night_high_contrast = 1
-"   let g:spring_night_cterm_italic = 1
-"   let g:spring_night_cterm_bold = 1
-"   let g:spring_night_highlight_terminal = 0
-
-" colorcheme monokai pro
-" colorscheme monokai_pro
-"   let g:airline_theme = 'monokai'
-
-colorscheme pink-moon
-set background=dark
-let g:airline_theme = 'base16'
-
-" ============================================
 " General Editor Settings
 " ============================================
 " Line numbering
@@ -284,3 +229,57 @@ nnoremap <leader>h :call ShowCustomShortcuts()<CR>
 " \  'project_mysql': 'mysql://user:password@localhost/mydb'
 " \}
 
+" ============================================
+" Terminal & Appearance Settings
+" ============================================
+if has("termguicolors")
+  let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+  let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+  set termguicolors
+endif
+
+" Set airline options
+let g:airline_powerline_fonts = 1
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#formatter = 'default'
+
+" Choose colorscheme
+
+" colorscheme OceanicNext
+"   let g:airline_theme='oceanicnext'
+"   let g:oceanic_next_terminal_bold = 1
+"   let g:oceanic_next_terminal_italic = 1
+
+" set background=dark
+" colorscheme oceanic_material
+"   let g:airline_theme='oceanicnext'
+"   " " let g:oceanic_material_transparent_background = 1
+"   let g:oceanic_material_background = 'ocean' " available: ocean, medium, deep, darker
+"   let g:oceanic_material_allow_bold = 1
+"   let g:oceanic_material_allow_italic = 1
+"   let g:oceanic_material_allow_underline = 1
+"   let g:oceanic_material_allow_undercurl = 1
+"   let g:oceanic_material_allow_reverse = 1
+
+" colorscheme tokyonight
+" let g:airline_theme = 'tokyonight'
+"   let g:tokyonight_style = 'storm' " available: night, storm
+"   let g:tokyonight_enable_italic = 1
+
+" colorscheme catppuccin_frappe " available: frappe, latte, mocha, macchiato
+" let g:airline_theme = 'catppuccin_macchiato' " available: frappe, latte, mocha, macchiato
+
+" colorscheme spring-night
+" let g:airline_theme = 'spring_night'
+"   let g:spring_night_high_contrast = 1
+"   let g:spring_night_cterm_italic = 1
+"   let g:spring_night_cterm_bold = 1
+"   let g:spring_night_highlight_terminal = 0
+
+" colorcheme monokai pro
+" colorscheme monokai_pro
+"   let g:airline_theme = 'monokai'
+
+" colorscheme pink-moon
+" set background=dark
+" let g:airline_theme = 'base16'
