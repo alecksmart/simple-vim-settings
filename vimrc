@@ -67,6 +67,9 @@ Plug 'tpope/vim-dadbod'
 Plug 'kristijanhusak/vim-dadbod-completion'
 Plug 'kristijanhusak/vim-dadbod-ui'
 
+" Tables
+Plug 'dhruvasagar/vim-table-mode'
+
 " On macOS only, add coc.vim for autocompletion (release branch)
 if has("macunix")
   Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -186,6 +189,21 @@ if has("macunix")
   inoremap <silent><expr> <CR> pumvisible() ? coc#pum#confirm() : "\<CR>"
 endif
 
+" -- Table mode
+function! s:isAtStartOfLine(mapping)
+  let text_before_cursor = getline('.')[0 : col('.')-1]
+  let mapping_pattern = '\V' . escape(a:mapping, '\')
+  let comment_pattern = '\V' . escape(substitute(&l:commentstring, '%s.*$', '', ''), '\')
+  return (text_before_cursor =~? '^' . ('\v(' . comment_pattern . '\v)?') . '\s*\v' . mapping_pattern . '\v$')
+endfunction
+
+inoreabbrev <expr> <bar><bar>
+      \ <SID>isAtStartOfLine('\|\|') ?
+      \ '<c-o>:TableModeEnable<cr><bar><space><bar><left><left>' : '<bar><bar>'
+inoreabbrev <expr> __
+      \ <SID>isAtStartOfLine('__') ?
+      \ '<c-o>:silent! TableModeDisable<cr>' : '__'
+
 " ============================================
 " Custom Leader Shortcut Help (Three Columns + Plugin Headings)
 " ============================================
@@ -275,3 +293,7 @@ let g:airline#extensions#tabline#formatter = 'default'
 "   let g:spring_night_cterm_italic = 1
 "   let g:spring_night_cterm_bold = 1
 "   let g:spring_night_highlight_terminal = 0
+
+colorscheme pink-moon
+set background=dark
+let g:airline_theme = 'base16'
