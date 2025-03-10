@@ -69,17 +69,6 @@ if [[ "$(uname)" == "Darwin" ]]; then
   vim -E -s +CocInstall\ -sync\ coc-html\ coc-css\ coc-tsserver\ coc-json\ coc-eslint +qall
 fi
 
-# 8. Uncomment the last 3 lines of .vimrc
-#    This removes a leading double-quote and optional spaces from each line.
-echo "Uncommenting last 3 lines in $VIMRC_FILE..."
-last3=$(tail -n 3 "$VIMRC_FILE")
-# Remove leading quote (") and optional whitespace from those lines
-uncommented=$(echo "$last3" | sed 's/^[ \t]*"[ \t]*//')
-# Rewrite the file without its last 3 lines, then append the uncommented lines
-head -n -3 "$VIMRC_FILE" > "$VIMRC_FILE.tmp"
-echo "$uncommented" >> "$VIMRC_FILE.tmp"
-mv "$VIMRC_FILE.tmp" "$VIMRC_FILE"
-
 echo "Installation complete!"
 echo "Please open Vim and enjoy your new configuration."
 
