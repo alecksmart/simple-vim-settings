@@ -6,7 +6,6 @@ This repository contains a streamlined vim configuration with plugins and settin
 
 - **vim-plug** – Modern, fast plugin management for vim.
 - **Popular plugins** such as:
-  - [NERDTree](https://github.com/preservim/nerdtree) – File explorer.
   - [CtrlP](https://github.com/ctrlpvim/ctrlp.vim) – Fuzzy file finder.
   - [vim-commentary](https://github.com/tpope/vim-commentary) – Easy commenting.
   - [vim-gitgutter](https://github.com/airblade/vim-gitgutter) – Git diff indicators.
@@ -79,10 +78,6 @@ Autocompletion is enabled **only for macOS** (intentionally). Make sure Node.js 
 
 Some of the key mappings include:
 
-- **NERDTree**:
-  - `<leader>n`: Toggle NERDTree.
-  - `<leader>r`: Find current file in NERDTree.
-  - `<leader>c`: Close NERDTree.
 - **FZF (fuzzy finder)**:
   - `<leader>f`: Open file finder.
   - `<leader>b`: Open buffer finder.

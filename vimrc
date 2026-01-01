@@ -43,7 +43,6 @@ Plug 'kien/rainbow_parentheses.vim'
 Plug 'Yggdroot/indentLine'
 
 " File explorers & Finders
-Plug 'preservim/nerdtree'
 Plug 'ctrlpvim/ctrlp.vim'
 
 " Commenting
@@ -246,7 +245,7 @@ let g:rainbow_active = 5
 
 " IndentLine: customize indentation line character and disable for some filetypes
 let g:indentLine_char = '|'
-let g:indentLine_fileTypeExclude = ['help', 'nerdtree', 'dashboard']
+let g:indentLine_fileTypeExclude = ['help', 'dashboard']
 
 " vim-highlightedyank Configuration:
 let g:highlightedyank_highlight_duration = 400
@@ -277,10 +276,7 @@ tnoremap <Esc> <C-\><C-n>:FloatermToggle<CR>
 " Custom Mappings
 " ============================================
 
-" -- NERDTree Mappings --
-nnoremap <leader>n :NERDTreeToggle<CR>
-nnoremap <leader>r :NERDTreeFind<CR>
-nnoremap <leader>c :NERDTreeClose<CR>
+" -- Startify Sessions --
 nnoremap <leader>ss :SSave<CR>
 nnoremap <leader>sl :SLoad<CR>
 
@@ -359,14 +355,12 @@ function! ShowCustomShortcuts()
   call setline(1, [
   \ 'Custom Leader Shortcut Help:',
   \ '-------------------------------------------------------------',
-  \ '=== NERDTree       | === FZF            | === Built-In Folding',
+  \ '=== FZF (Primary) | === CtrlP (Alt)   | === Built-In Folding',
   \ '-------------------------------------------------------------',
-  \ ' <leader>n: Toggle | <leader>f: Files   | za  : Toggle fold',
-  \ ' <leader>r: Find   | <leader>b: Buffers | zR  : Open all folds',
-  \ ' <leader>c: Close  | <leader>h: History | zM  : Close all folds',
-  \ '-------------------------------------------------------------',
-  \ '=== CtrlP (Alt Picker)',
-  \ '  <leader>pf: Files | <leader>pb: Buffers | <leader>pm: MRU',
+  \ ' <leader>f: Files | <leader>pf: Files | za  : Toggle fold',
+  \ ' <leader>b: Buffs | <leader>pb: Buffs | zR  : Open all folds',
+  \ ' <leader>h: Hist  | <leader>pm: MRU   | zM  : Close all folds',
+  \ ' <leader>/: Lines |                   |',
   \ '-------------------------------------------------------------',
   \ '=== tpope/vim-commentary (Editing Tools)',
   \ '  gc: Toggle comment (normal & visual modes)',
