@@ -15,12 +15,12 @@ This repository contains a streamlined vim configuration with plugins and settin
   - [vim-highlightedyank](https://github.com/machakann/vim-highlightedyank) – Highlights yanked text briefly to help you see what was copied.
   - [vim-startify](https://github.com/mhinz/vim-startify) – Provides a customizable start screen with recent files, sessions, and bookmarks.
   - [vim-polyglot](https://github.com/sheerun/vim-polyglot) – Language pack with improved syntax and folding support.
+  - [vim-oscyank](https://github.com/ojroques/vim-oscyank) – Copy over SSH/terminal using OSC52 (global clipboard-friendly).
   - **coc.nvim** – *[macOS only]* Autocompletion and language server protocol integration for a modern coding experience.
   - Additional plugins for databases and themes are also included.
 
 - **Enhanced editor settings** – syntax highlighting, smooth scrolling, smart indentation, and more.
 - **Custom mappings** – predefined shortcuts for navigation, file management, folding, and plugin functions.
-- **Custom help function** – displays a summary of available key mappings in a structured three-column layout.
 - **Leader mapped to Spacebar** – all custom mappings use the spacebar as the leader key.
 
 ## Installation
@@ -50,12 +50,12 @@ wget -qO- https://raw.githubusercontent.com/alecksmart/simple-vim-settings/main/
 
 **What the script does**:
 
-1. Backs up your existing `~/.vimrc` and `~/.vim` directories (renaming them, e.g. `~/.vimrc.bak.1` or `~/.vim.bak.1`).
-2. Creates a fresh `~/.vim` folder.
-3. Downloads the new `vimrc` from this repository and saves it as `~/.vimrc`.
-4. Installs [vim-plug](https://github.com/junegunn/vim-plug) into `~/.vim/autoload`.
-5. Runs `:PlugInstall` to install all listed plugins.
-6. **macOS only**: If Node.js is missing, installs it automatically via Homebrew, then runs `npm ci` to build `coc.nvim` and installs some default coc extensions (HTML, CSS, TS, JSON, and ESLint).
+1. Backs up your existing `~/.vimrc` into `~/.vimrc_backup/vimrc-<timestamp>` if present.
+2. Downloads the new `vimrc` from this repository and saves it as `~/.vimrc` (cache-busted).
+3. Installs [vim-plug](https://github.com/junegunn/vim-plug) into `~/.vim/autoload` (creating the directory if needed).
+4. Runs a headless `PlugInstall --sync` followed by `PlugUpdate --sync` so all plugins install on the first run.
+5. **macOS only**: If Node.js is missing, installs it automatically via Homebrew. If `coc.nvim` is present, runs `npm install && npm ci`, then installs default coc extensions (HTML, CSS, TS, JSON, ESLint).
+6. Ensures the `pink-moon` colorscheme block is present at the end of `~/.vimrc` (idempotent—no duplicates on reruns).
 
 When complete, open Vim to start using the new configuration.
 
@@ -98,10 +98,7 @@ Some of the key mappings include:
   - **vim-startify**: Presents a start screen with recent files and sessions when vim is opened.
 - **Autocompletion** (*macOS only*):
   - **coc.nvim** is automatically loaded and configured for autocompletion and language server integration.
-- **Custom Help**:
-  - `<leader>h`: Display a help window with a summary of shortcuts.
-
-*Note: In all mappings, `<leader>` is mapped to the spacebar.*
+- *Note*: `<leader>` is mapped to the spacebar.
 
 ## Contributing
 
