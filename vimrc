@@ -157,10 +157,9 @@ function! GetStartifyHeader()
         \ l:pad . 'VIM:  ' . v:version,
         \ l:pad . 'UP:   ' . l:uptime,
         \ l:pad . '---------------------------------------------------------------',
-        \ l:pad . (empty(l:fortune) ? 'Stay hungry, stay foolish.' : '"' . l:fortune . '"'),
-        \ l:pad . '---------------------------------------------------------------',
         \ l:pad . 'CWD:  ' . getcwd(),
         \ l:pad . '---------------------------------------------------------------',
+        \ l:pad . (empty(l:fortune) ? 'Stay hungry, stay foolish.' : '"' . l:fortune . '"'),
         \ ]
 endfunction
 

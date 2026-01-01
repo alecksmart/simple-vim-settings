@@ -34,6 +34,10 @@ This repository contains a streamlined vim configuration with plugins and settin
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
     ```
 
+- Optional but recommended: install `fortune` so the start screen can show quotes. Example installs:
+  - macOS (Homebrew): `brew install fortune`
+  - Debian/Ubuntu: `sudo apt-get install fortune-mod`
+
 ### Quick Install
 
 Run the following command in your terminal:
