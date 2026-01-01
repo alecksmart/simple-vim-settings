@@ -135,6 +135,51 @@ endif
 " ============================================
 " Plugin Specific Options
 " ============================================
+
+" Startify Config
+
+" 1. Dynamic Header (Random Quote / ASCII art)
+" If you have 'fortune' installed on your Mac (brew install fortune),
+" this will show a new quote every time you open Vim.
+let g:startify_custom_header =
+      \ startify#pad(split(system('fortune -s'), '\n'))
+
+" 2. Smart Lists: Filtered and Organized
+let g:startify_lists = [
+      \ { 'type': 'bookmarks', 'header': ['   🔖 Bookmarks']      },
+      \ { 'type': 'files',     'header': ['   🕒 Recent Files']   },
+      \ { 'type': 'dir',       'header': ['   📂 Current Project '. getcwd()] },
+      \ { 'type': 'sessions',  'header': ['   💾 Sessions']       },
+      \ ]
+
+" 3. Nerd-Tier Bookmarks
+" Add your most edited config files here
+let g:startify_bookmarks = [
+            \ {'b': '~/.bashrc'},
+            \ {'z': '~/.zshrc'},
+            \ {'v': '~/.vimrc'},
+            \ {'s': '~/.ssh/config'},
+            \ {'g': '~/.config/ghostty/config'},
+            \ ]
+
+" 4. The 'Nerdy' Tweaks
+let g:startify_session_persistence = 1    " Auto-save sessions
+let g:startify_enable_special      = 0    " Hide <empty buffer> and <quit>
+let g:startify_relative_path      = 1    " Show relative paths (cleaner)
+let g:startify_change_to_dir      = 1    " Auto-cd to the file's directory
+
+" 5. Custom Footer (System Stats)
+" Displays your Vim version and current time at the bottom
+let g:startify_custom_footer = [
+      \ '',
+      \ '   Vim ' . v:version . ' | Server: ' . hostname(),
+      \ '   Last login: ' . strftime('%Y-%m-%d %H:%M'),
+      \ ]
+
+" 6. Quick Action: Press 's' to save a session or 'S' to load
+nnoremap <leader>ss :SSave<CR>
+nnoremap <leader>sl :SLoad<CR>
+
 " Rainbow Parentheses: set max nesting level
 let g:rainbow_active = 5
 
