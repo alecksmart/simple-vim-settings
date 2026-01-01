@@ -70,6 +70,9 @@ Plug 'kristijanhusak/vim-dadbod-ui'
 " Tables
 Plug 'dhruvasagar/vim-table-mode'
 
+" Global clipboard
+Plug 'ojroques/vim-oscyank', {'branch': 'main'}
+
 " On macOS only, add coc.vim for autocompletion (release branch)
 if has("macunix")
   Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -163,6 +166,12 @@ nnoremap <leader>m :CtrlPMRU<CR>
 nnoremap <leader>gg :GitGutterToggle<CR>
 nnoremap <leader>gn :GitGutterNextHunk<CR>
 nnoremap <leader>gp :GitGutterPrevHunk<CR>
+
+" -- OSCYank Mappings --
+" --- Automatically copy every yank to the system clipboard via OSC 52
+autocmd TextYankPost * if v:event.operator is 'y' && v:event.regname is '' | execute 'OSCYankRegister "' | endif
+" --- Optional: Map <leader>c to manually copy a visual selection
+vnoremap <leader>c :OSCYank<CR>
 
 " -- Moving Lines Up/Down --
 nnoremap <A-j> :m .+1<CR>==
