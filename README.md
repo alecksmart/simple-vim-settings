@@ -94,6 +94,12 @@ Some of the key mappings include:
   - `za`: Toggle fold at cursor.
   - `zR`: Open all folds.
   - `zM`: Close all folds.
+- **Startify (sessions & start screen)**:
+  - `<leader>ss`: Save current session.
+  - `<leader>sl`: Load a saved session.
+  - `:Startify`: Open the start screen.
+  - `:SDelete {name}`: Delete a saved session.
+  - `:SClose`: Close the current session.
 - **Window & Tab Navigation**:
   - `<C-w> h/j/k/l`: Move between windows.
   - `gt` / `gT`: Navigate tabs.

@@ -210,10 +210,6 @@ function! s:startify_setup()
     highlight StartifySection ctermfg=108 guifg=#a3be8c
 endfunction
 
-" 7. Session Mappings
-nnoremap <leader>ss :SSave<CR>
-nnoremap <leader>sl :SLoad<CR>
-
 augroup startify_custom
     autocmd!
     " Apply setup when entering Startify
@@ -242,6 +238,8 @@ let g:highlightedyank_highlight_group = 'IncSearch'
 nnoremap <leader>n :NERDTreeToggle<CR>
 nnoremap <leader>r :NERDTreeFind<CR>
 nnoremap <leader>c :NERDTreeClose<CR>
+nnoremap <leader>ss :SSave<CR>
+nnoremap <leader>sl :SLoad<CR>
 
 " -- CtrlP Mappings --
 nnoremap <leader>f :CtrlP<CR>
@@ -323,6 +321,11 @@ function! ShowCustomShortcuts()
   \ '-------------------------------------------------------------',
   \ '=== vim-gitgutter (Git Integration)',
   \ '  <leader>gg: Toggle signs  | <leader>gn: Next hunk | <leader>gp: Prev hunk',
+  \ '-------------------------------------------------------------',
+  \ '=== Startify Sessions',
+  \ '  <leader>ss: Save session  | <leader>sl: Load session',
+  \ '  :SDelete {name}: Delete session | :Startify: Open start screen',
+  \ '  :SClose: Close current session',
   \ '-------------------------------------------------------------',
   \ '=== Window & Tab Navigation',
   \ '  <C-w> h/j/k/l: Move between windows',
