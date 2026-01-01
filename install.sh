@@ -65,5 +65,16 @@ if ! grep -q "colorscheme pink-moon" "$VIMRC_FILE"; then
   } >> "$VIMRC_FILE"
 fi
 
+# 7. Ensure tmux clipboard support is configured once
+TMUX_CONF="$HOME/.tmux.conf"
+TMUX_CLIPBOARD_SETTING="set -s set-clipboard on"
+echo "Ensuring tmux clipboard setting is present in $TMUX_CONF..."
+if [ ! -f "$TMUX_CONF" ]; then
+  touch "$TMUX_CONF"
+fi
+if ! grep -Fxq "$TMUX_CLIPBOARD_SETTING" "$TMUX_CONF"; then
+  echo "$TMUX_CLIPBOARD_SETTING" >> "$TMUX_CONF"
+fi
+
 echo "Installation complete!"
 echo "Please open Vim and enjoy your new configuration."
