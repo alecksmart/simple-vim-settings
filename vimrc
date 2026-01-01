@@ -124,6 +124,12 @@ set clipboard=
 
 " Cursor Line Highlighting
 set cursorline
+" Remove underline on active line (override colorscheme defaults)
+highlight CursorLine cterm=NONE gui=NONE
+augroup cursorline_override
+  autocmd!
+  autocmd ColorScheme * highlight CursorLine cterm=NONE gui=NONE
+augroup END
 
 " Cursor style settings for GUI and terminal (if supported)
 set guicursor=n-v-c:block,i:ver25
