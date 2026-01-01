@@ -100,6 +100,15 @@ Some of the key mappings include:
   - `:Startify`: Open the start screen.
   - `:SDelete {name}`: Delete a saved session.
   - `:SClose`: Close the current session.
+- **Clipboard (OSC52)**:
+  - `<leader>c` (visual): Copy selection to the system clipboard over OSC52.
+- **Moving Lines**:
+  - `Alt-j` / `Alt-k`: Move the current line or selection down/up (works in normal, insert, and visual modes).
+- **Visuals**:
+  - `<leader>l`: Toggle Limelight.
+  - `<leader>tm`: Toggle table mode.
+- **Helper**:
+  - `<leader>h`: Show the in-Vim shortcuts window.
 - **Window & Tab Navigation**:
   - `<C-w> h/j/k/l`: Move between windows.
   - `gt` / `gT`: Navigate tabs.
