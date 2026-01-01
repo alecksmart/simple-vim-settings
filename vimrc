@@ -124,16 +124,12 @@ set clipboard=
 
 " Cursor Line Highlighting
 set cursorline
-function! s:ClearCursorlineUnderline()
-  " Keep whatever background the colorscheme sets, just drop underline/other attrs
-  highlight! CursorLine gui=NONE cterm=NONE
-  highlight! CursorLineNr gui=NONE cterm=NONE
-endfunction
-call s:ClearCursorlineUnderline()
 augroup cursorline_override
   autocmd!
-  autocmd ColorScheme * call s:ClearCursorlineUnderline()
+  autocmd ColorScheme * highlight CursorLine cterm=NONE gui=NONE | highlight CursorLineNr cterm=NONE gui=NONE
 augroup END
+highlight CursorLine cterm=NONE gui=NONE
+highlight CursorLineNr cterm=NONE gui=NONE
 
 " Cursor style settings for GUI and terminal (if supported)
 set guicursor=n-v-c:block,i:ver25
@@ -422,4 +418,4 @@ set background=dark
 let g:airline_theme = 'base16'
 
 " Remove underline on active line (reinforced after setting colorscheme)
-call s:ClearCursorlineUnderline()
+" (handled by cursorline_override autocommand above)
