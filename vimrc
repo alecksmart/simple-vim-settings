@@ -411,4 +411,5 @@ colorscheme pink-moon
 set background=dark
 let g:airline_theme = 'base16'
 
+" do not underline the current line
 highlight CursorLineNr cterm=NONE gui=NONE
