@@ -92,6 +92,12 @@ Some of the key mappings include:
   - `<leader>G`: Toggle Goyo mode.
 - **Floaterm (floating terminal)**:
   - `<leader>t`: Toggle floating terminal.
+- **vim-surround**:
+  - `cs`: Change surrounding pairs (e.g., quotes/brackets/tags).
+  - `ds`: Delete surrounding pairs.
+- **targets.vim**:
+  - `in`: Select “inside next” object.
+  - `il`: Select “inside last” object.
 - **CtrlP**:
   - `<leader>pf`: Open file finder.
   - `<leader>pb`: Open buffer finder.
