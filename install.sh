@@ -26,9 +26,9 @@ echo "New vimrc saved to $VIMRC_FILE."
 echo "Installing vim-plug..."
 curl -fLo "$VIM_DIR/autoload/plug.vim" --create-dirs "$PLUG_INSTALLER"
 
-# 4. Update plugins if they already exist; otherwise, install them
-  echo "Updating vim plugins with vim-plug..."
-  vim -c "PlugUpdate" -c "qall" < /dev/null 2>/dev/null
+# 4. Install/Update plugins synchronously so first run completes fully
+echo "Installing/updating vim plugins with vim-plug..."
+vim -es -u "$VIMRC_FILE" -i NONE -c "PlugInstall --sync" -c "PlugUpdate --sync" -c "qa" < /dev/null 2>/dev/null
 
 # 5. On macOS, install Node.js if missing, then build coc.nvim and install extensions
 if [[ "$(uname)" == "Darwin" ]]; then
@@ -55,14 +55,15 @@ if [[ "$(uname)" == "Darwin" ]]; then
 fi
 
 # 6. Append colorscheme settings to the end of .vimrc
-echo "Appending colorscheme lines to $VIMRC_FILE..."
-{
-  echo ""
-  echo "colorscheme pink-moon"
-  echo "set background=dark"
-  echo "let g:airline_theme = 'base16'"
-} >> "$VIMRC_FILE"
+echo "Ensuring colorscheme lines are present in $VIMRC_FILE..."
+if ! grep -q "colorscheme pink-moon" "$VIMRC_FILE"; then
+  {
+    echo ""
+    echo "colorscheme pink-moon"
+    echo "set background=dark"
+    echo "let g:airline_theme = 'base16'"
+  } >> "$VIMRC_FILE"
+fi
 
 echo "Installation complete!"
 echo "Please open Vim and enjoy your new configuration."
-
