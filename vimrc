@@ -124,8 +124,6 @@ set clipboard=
 
 " Cursor Line Highlighting
 set cursorline
-" Remove underline on active line (override colorscheme defaults)
-highlight CursorLine cterm=NONE gui=NONE
 augroup cursorline_override
   autocmd!
   autocmd ColorScheme * highlight CursorLine cterm=NONE gui=NONE
@@ -416,3 +414,6 @@ let g:airline#extensions#tabline#formatter = 'default'
 colorscheme pink-moon
 set background=dark
 let g:airline_theme = 'base16'
+
+" Remove underline on active line (override colorscheme defaults)
+highlight CursorLine cterm=NONE gui=NONE
