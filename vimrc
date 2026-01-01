@@ -132,54 +132,98 @@ if exists('&t_SI')
   let &t_EI = "\e[2 q"  " Normal mode: block cursor
 endif
 
-" ============================================
-" Plugin Specific Options
-" ============================================
+" ===========================
+"  Set leader key
+" ==========================
 
-" Startify Config
+" Set the leader key to space
+let mapleader = " "
 
-" 1. Dynamic Header (Random Quote / ASCII art)
-" If you have 'fortune' installed on your Mac (brew install fortune),
-" this will show a new quote every time you open Vim.
-let g:startify_custom_header =
-      \ startify#pad(split(system('fortune -s'), '\n'))
+" ===========================
+"  STARTIFY CONFIGURATION
+" ==========================
 
-" 2. Smart Lists: Filtered and Organized
+" 1. Function to build the header with 4-space global padding
+function! GetStartifyHeader()
+    let l:host    = substitute(system('hostname -s'), '\n', '', '')
+    let l:uptime  = substitute(system("uptime | grep -o 'up [^,]*' | sed 's/up //'"), '\n', '', '')
+    let l:fortune = substitute(system('fortune -sn 60'), '\n', ' ', 'g')
+    
+    " We manualy pad with 4 spaces to avoid triggering indent-plugins
+    let l:pad = '    '
+    return [
+        \ l:pad . '---------------------------------------------------------------',
+        \ l:pad . 'HOST: ' . l:host,
+        \ l:pad . 'VIM:  ' . v:version,
+        \ l:pad . 'UP:   ' . l:uptime,
+        \ l:pad . '---------------------------------------------------------------',
+        \ l:pad . (empty(l:fortune) ? 'Stay hungry, stay foolish.' : '"' . l:fortune . '"'),
+        \ l:pad . '---------------------------------------------------------------',
+        \ l:pad . 'CWD:  ' . getcwd(),
+        \ l:pad . '---------------------------------------------------------------',
+        \ ]
+endfunction
+
+let g:startify_custom_header = GetStartifyHeader()
+
+" 2. Smart Lists: Section headers at 4 spaces, Items at 8 spaces
+" Startify adds a small indent by default, so 7 spaces in the header 
+" usually results in 8 spaces for the actual items.
 let g:startify_lists = [
-      \ { 'type': 'bookmarks', 'header': ['   🔖 Bookmarks']      },
-      \ { 'type': 'files',     'header': ['   🕒 Recent Files']   },
-      \ { 'type': 'dir',       'header': ['   📂 Current Project '. getcwd()] },
-      \ { 'type': 'sessions',  'header': ['   💾 Sessions']       },
+      \ { 'type': 'bookmarks', 'header': ['    🔖 Bookmarks']      },
+      \ { 'type': 'files',     'header': ['    🕒 Recent Files']   },
+      \ { 'type': 'dir',       'header': ['    📂 Current Project'] },
+      \ { 'type': 'sessions',  'header': ['    💾 Sessions']       },
       \ ]
 
-" 3. Nerd-Tier Bookmarks
-" Add your most edited config files here
+" 3. Bookmarks
 let g:startify_bookmarks = [
-            \ {'b': '~/.bashrc'},
-            \ {'z': '~/.zshrc'},
-            \ {'v': '~/.vimrc'},
-            \ {'s': '~/.ssh/config'},
-            \ {'g': '~/.config/ghostty/config'},
-            \ ]
-
-" 4. The 'Nerdy' Tweaks
-let g:startify_session_persistence = 1    " Auto-save sessions
-let g:startify_enable_special      = 0    " Hide <empty buffer> and <quit>
-let g:startify_relative_path      = 1    " Show relative paths (cleaner)
-let g:startify_change_to_dir      = 1    " Auto-cd to the file's directory
-
-" 5. Custom Footer (System Stats)
-" Displays your Vim version and current time at the bottom
-let g:startify_custom_footer = [
-      \ '',
-      \ '   Vim ' . v:version . ' | Server: ' . hostname(),
-      \ '   Last login: ' . strftime('%Y-%m-%d %H:%M'),
+      \ {'b': '~/.bashrc'},
+      \ {'z': '~/.zshrc'},
+      \ {'v': '~/.vimrc'},
+      \ {'c': '~/.ssh/config'},
+      \ {'g': '~/.config/ghostty/config'},
       \ ]
 
-" 6. Quick Action: Press 's' to save a session or 'S' to load
+" 4. Tweaks
+let g:startify_padding_left = 8          " Indent items to 8 spaces
+let g:startify_session_persistence = 1
+let g:startify_enable_special      = 0
+let g:startify_relative_path       = 1
+let g:startify_change_to_dir       = 1
+
+" 5. Footer (4-space padding)
+let g:startify_custom_footer = [
+      \ '    Vim ' . v:version . ' | ' . strftime('%Y-%m-%d %H:%M'),
+      \ ]
+
+" 6. Buffer-Specific Fixes (Disable Indent Lines & Colors)
+function! s:startify_setup()
+    " Disable common indentation guide plugins for this buffer
+    if exists(':IndentLinesDisable') | IndentLinesDisable | endif
+    let b:indent_blankline_enabled = 0
+    
+    " Custom Colors
+    highlight StartifyHeader  ctermfg=111 guifg=#81a1c1
+    highlight StartifyBracket ctermfg=242 guifg=#4c566a
+    highlight StartifyFile    ctermfg=214 guifg=#fabd2f
+    highlight StartifyPath    ctermfg=245 guifg=#928374
+    highlight StartifySection ctermfg=108 guifg=#a3be8c
+endfunction
+
+" 7. Session Mappings
 nnoremap <leader>ss :SSave<CR>
 nnoremap <leader>sl :SLoad<CR>
 
+augroup startify_custom
+    autocmd!
+    " Apply setup when entering Startify
+    autocmd FileType startify call s:startify_setup()
+augroup END
+
+" ============================================
+" Plugin Specific Options
+" ============================================
 " Rainbow Parentheses: set max nesting level
 let g:rainbow_active = 5
 
@@ -194,8 +238,6 @@ let g:highlightedyank_highlight_group = 'IncSearch'
 " ============================================
 " Custom Mappings
 " ============================================
-" Set the leader key to space
-let mapleader = " "
 
 " -- NERDTree Mappings --
 nnoremap <leader>n :NERDTreeToggle<CR>
