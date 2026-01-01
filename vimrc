@@ -311,6 +311,11 @@ vnoremap <A-k> :m '<-2<CR>gv=gv
 
 " -- Toggle Limelight --
 nnoremap <leader>l :Limelight!!<CR>
+" Enable Limelight by default on startup
+augroup limelight_auto
+  autocmd!
+  autocmd VimEnter * Limelight
+augroup END
 
 " -- Reopen last edited position in file --
 au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif

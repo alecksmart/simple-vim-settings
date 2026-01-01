@@ -81,5 +81,10 @@ if ! command -v fortune >/dev/null 2>&1; then
   echo "Warning: 'fortune' is not installed. Recommended installs: 'brew install fortune' (macOS) or 'sudo apt-get install fortune-mod' (Debian/Ubuntu)."
 fi
 
+echo "Checking for 'fzf'..."
+if ! command -v fzf >/dev/null 2>&1; then
+  echo "Warning: 'fzf' is not installed. Recommended installs: 'brew install fzf' (macOS) or 'sudo apt-get install fzf' (Debian/Ubuntu)."
+fi
+
 echo "Installation complete!"
 echo "Please open Vim and enjoy your new configuration."

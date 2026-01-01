@@ -37,6 +37,9 @@ This repository contains a streamlined vim configuration with plugins and settin
 - Optional but recommended: install `fortune` so the start screen can show quotes. Example installs:
   - macOS (Homebrew): `brew install fortune`
   - Debian/Ubuntu: `sudo apt-get install fortune-mod`
+- Optional but recommended: install `fzf` for the default fuzzy finder keybindings:
+  - macOS (Homebrew): `brew install fzf`
+  - Debian/Ubuntu: `sudo apt-get install fzf`
 
 ### Quick Install
 
@@ -114,7 +117,7 @@ Some of the key mappings include:
 - **Moving Lines**:
   - `Alt-j` / `Alt-k`: Move the current line or selection down/up (works in normal, insert, and visual modes).
 - **Visuals**:
-  - `<leader>l`: Toggle Limelight.
+  - `<leader>l`: Toggle Limelight (enabled by default at startup).
   - `<leader>tm`: Toggle table mode.
 - **Helper**:
   - `<leader>?`: Show the in-Vim shortcuts window.
