@@ -80,10 +80,19 @@ Some of the key mappings include:
   - `<leader>n`: Toggle NERDTree.
   - `<leader>r`: Find current file in NERDTree.
   - `<leader>c`: Close NERDTree.
-- **CtrlP**:
+- **FZF (fuzzy finder)**:
   - `<leader>f`: Open file finder.
   - `<leader>b`: Open buffer finder.
-  - `<leader>m`: Open MRU list.
+  - `<leader>h`: View history.
+  - `<leader>/`: Search within the current buffer.
+- **Goyo (distraction-free)**:
+  - `<leader>G`: Toggle Goyo mode.
+- **Floaterm (floating terminal)**:
+  - `<leader>t`: Toggle floating terminal.
+- **CtrlP**:
+  - `<leader>pf`: Open file finder.
+  - `<leader>pb`: Open buffer finder.
+  - `<leader>pm`: Open MRU list.
 - **vim-commentary**:
   - `gc`: Toggle comment (works in normal and visual modes).
 - **vim-gitgutter**:
@@ -108,7 +117,7 @@ Some of the key mappings include:
   - `<leader>l`: Toggle Limelight.
   - `<leader>tm`: Toggle table mode.
 - **Helper**:
-  - `<leader>h`: Show the in-Vim shortcuts window.
+  - `<leader>?`: Show the in-Vim shortcuts window.
 - **Window & Tab Navigation**:
   - `<C-w> h/j/k/l`: Move between windows.
   - `gt` / `gT`: Navigate tabs.

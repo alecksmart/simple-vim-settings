@@ -13,7 +13,7 @@ Plug 'junegunn/vim-plug'
 
 " Git & File Management
 Plug 'tpope/vim-fugitive'
-Plug 'mhinz/vim-signify'
+" Plug 'mhinz/vim-signify'
 
 " Color Schemes, Themes & Statusline
 " Plug 'chriskempson/base16-vim'
@@ -72,6 +72,24 @@ Plug 'dhruvasagar/vim-table-mode'
 
 " Global clipboard
 Plug 'ojroques/vim-oscyank', {'branch': 'main'}
+
+" Change, delete, and add surroundings (quotes, brackets, tags) in pairs
+Plug 'tpope/vim-surround'
+
+" Adds more text objects like 'i,' (inside comma) or 'a;' (around semicolon)
+Plug 'wellle/targets.vim'
+
+" The fuzzy finder engine (requires 'brew install fzf' on Mac)
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+
+" Vim integration for fzf (files, buffers, history search)
+Plug 'junegunn/fzf.vim'
+
+" Distraction-free writing mode (centers text, hides UI)
+Plug 'junegunn/goyo.vim'
+
+" Floating terminal window for quick shell commands
+Plug 'voldikss/vim-floaterm'
 
 " On macOS only, add coc.vim for autocompletion (release branch)
 if has("macunix")
@@ -159,7 +177,7 @@ function! GetStartifyHeader()
         \ l:pad . 'UP:   ' . l:uptime,
         \ l:divider,
         \ l:pad . 'CWD:  ' . getcwd(),
-        \ l:pad . 'HELP: Press <leader>h for shortcuts',
+        \ l:pad . 'HELP: Press <leader>? for shortcuts',
         \ l:divider,
         \ l:pad . '',
         \ l:pad . (empty(l:fortune) ? 'Stay hungry, stay foolish.' : '"' . l:fortune . '"'),
@@ -234,6 +252,27 @@ let g:indentLine_fileTypeExclude = ['help', 'nerdtree', 'dashboard']
 let g:highlightedyank_highlight_duration = 400
 let g:highlightedyank_highlight_group = 'IncSearch'
 
+" --- FZF (Fuzzy Finder) ---
+" Search files with Space+f, buffers with Space+b, and history with Space+h
+nnoremap <leader>f :Files<CR>
+nnoremap <leader>b :Buffers<CR>
+nnoremap <leader>h :History<CR>
+" Search current file content (like a super grep)
+nnoremap <leader>/ :BLines<CR>
+
+" --- Goyo (Distraction Free) ---
+" Toggle clean mode with Space+G
+nnoremap <leader>G :Goyo<CR>
+
+" --- Floaterm (Floating Terminal) ---
+" Toggle the terminal with Space+t
+let g:floaterm_width = 0.8
+let g:floaterm_height = 0.8
+let g:floaterm_title = ' Terminal '
+nnoremap <leader>t :FloatermToggle<CR>
+" Terminal-specific: Use Esc to exit terminal mode back to normal mode
+tnoremap <Esc> <C-\><C-n>:FloatermToggle<CR>
+
 " ============================================
 " Custom Mappings
 " ============================================
@@ -246,9 +285,10 @@ nnoremap <leader>ss :SSave<CR>
 nnoremap <leader>sl :SLoad<CR>
 
 " -- CtrlP Mappings --
-nnoremap <leader>f :CtrlP<CR>
-nnoremap <leader>b :CtrlPBuffer<CR>
-nnoremap <leader>m :CtrlPMRU<CR>
+" Use separate prefix to avoid clashing with FZF mappings
+nnoremap <leader>pf :CtrlP<CR>
+nnoremap <leader>pb :CtrlPBuffer<CR>
+nnoremap <leader>pm :CtrlPMRU<CR>
 
 " -- vim-gitgutter Mappings --
 nnoremap <leader>gg :GitGutterToggle<CR>
@@ -314,11 +354,14 @@ function! ShowCustomShortcuts()
   call setline(1, [
   \ 'Custom Leader Shortcut Help:',
   \ '-------------------------------------------------------------',
-  \ '=== NERDTree       | === CtrlP          | === Built-In Folding',
+  \ '=== NERDTree       | === FZF            | === Built-In Folding',
   \ '-------------------------------------------------------------',
-  \ ' <leader>n: Toggle | <leader>f: Finder  | za  : Toggle fold',
-  \ ' <leader>r: Find   | <leader>b: Buffer  | zR  : Open all folds',
-  \ ' <leader>c: Close  | <leader>m: MRU     | zM  : Close all folds',
+  \ ' <leader>n: Toggle | <leader>f: Files   | za  : Toggle fold',
+  \ ' <leader>r: Find   | <leader>b: Buffers | zR  : Open all folds',
+  \ ' <leader>c: Close  | <leader>h: History | zM  : Close all folds',
+  \ '-------------------------------------------------------------',
+  \ '=== CtrlP (Alt Picker)',
+  \ '  <leader>pf: Files | <leader>pb: Buffers | <leader>pm: MRU',
   \ '-------------------------------------------------------------',
   \ '=== tpope/vim-commentary (Editing Tools)',
   \ '  gc: Toggle comment (normal & visual modes)',
@@ -345,14 +388,14 @@ function! ShowCustomShortcuts()
   \ '  <leader>l: Toggle Limelight | <leader>tm: Toggle table mode',
   \ '-------------------------------------------------------------',
   \ '=== Helper',
-  \ '  <leader>h: Open this shortcuts window',
+  \ '  <leader>?: Open this shortcuts window',
   \ '-------------------------------------------------------------',
   \ 'Press Esc to close this window.'
   \ ])
   setlocal nomodifiable
   nnoremap <buffer> <Esc> :close<CR>
 endfunction
-nnoremap <leader>h :call ShowCustomShortcuts()<CR>
+nnoremap <leader>? :call ShowCustomShortcuts()<CR>
 
 " Databases
 " let g:dbs = {
