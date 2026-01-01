@@ -182,6 +182,7 @@ let g:startify_bookmarks = [
       \ {'v': '~/.vimrc'},
       \ {'c': '~/.ssh/config'},
       \ {'g': '~/.config/ghostty/config'},
+      \ {'p': '~/Projects/'},
       \ ]
 
 " 4. Tweaks
