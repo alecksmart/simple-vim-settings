@@ -151,14 +151,17 @@ function! GetStartifyHeader()
     
     " We manualy pad with 4 spaces to avoid triggering indent-plugins
     let l:pad = '    '
+    let l:divider = l:pad . '━━━✦━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━✦━━━'
     return [
-        \ l:pad . '---------------------------------------------------------------',
+        \ l:divider,
         \ l:pad . 'HOST: ' . l:host,
         \ l:pad . 'VIM:  ' . v:version,
         \ l:pad . 'UP:   ' . l:uptime,
-        \ l:pad . '---------------------------------------------------------------',
+        \ l:divider,
         \ l:pad . 'CWD:  ' . getcwd(),
-        \ l:pad . '---------------------------------------------------------------',
+        \ l:pad . 'HELP: Press <leader>h for shortcuts',
+        \ l:divider,
+        \ l:pad . '',
         \ l:pad . (empty(l:fortune) ? 'Stay hungry, stay foolish.' : '"' . l:fortune . '"'),
         \ ]
 endfunction
