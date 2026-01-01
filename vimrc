@@ -124,12 +124,6 @@ set clipboard=
 
 " Cursor Line Highlighting
 set cursorline
-augroup cursorline_override
-  autocmd!
-  autocmd ColorScheme * highlight CursorLine cterm=NONE gui=NONE | highlight CursorLineNr cterm=NONE gui=NONE
-augroup END
-highlight CursorLine cterm=NONE gui=NONE
-highlight CursorLineNr cterm=NONE gui=NONE
 
 " Cursor style settings for GUI and terminal (if supported)
 set guicursor=n-v-c:block,i:ver25
@@ -417,5 +411,4 @@ colorscheme pink-moon
 set background=dark
 let g:airline_theme = 'base16'
 
-" Remove underline on active line (reinforced after setting colorscheme)
-" (handled by cursorline_override autocommand above)
+highlight CursorLineNr cterm=NONE gui=NONE
