@@ -499,7 +499,7 @@ let g:airline#extensions#tabline#formatter = 'default'
 "   let g:airline_theme = 'nightfly'
 
 " colorscheme monokai-pro-classic
-"   " Also available: monokai-pro-machine, monokai-pro-ristretto, monokai-pro-octagon
+"   " Also available: mmonokai-pro-classic, monokai-pro-machine, monokai-pro-ristretto, monokai-pro-octagon
 "   let g:airline_theme = 'monokai_pro'
 
 " colorscheme sonokai
