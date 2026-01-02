@@ -10,6 +10,8 @@ This repository contains a streamlined vim configuration with plugins and settin
   - [CtrlP](https://github.com/ctrlpvim/ctrlp.vim) – Fuzzy file finder.
   - [vim-over](https://github.com/osyo-manga/vim-over) – Live preview for substitute commands.
   - [vim-abolish](https://github.com/tpope/vim-abolish) – Case/inflection aware search and replace.
+  - [vim-which-key](https://github.com/liuchengxu/vim-which-key) – Leader-key popup hints.
+  - [vim-cheat.sh](https://github.com/RishabhRD/vim-cheat.sh) – In-editor cheat.sh lookups.
   - [vim-commentary](https://github.com/tpope/vim-commentary) – Easy commenting.
   - [vim-gitgutter](https://github.com/airblade/vim-gitgutter) – Git diff indicators.
   - [rainbow_parentheses.vim](https://github.com/kien/rainbow_parentheses.vim) – Colorful nested parentheses.
@@ -90,6 +92,10 @@ Some of the key mappings include:
   - `<leader>r`: Start a live preview substitute on the current line; in visual mode, runs within the selection.
 - **Abolish (smart case-aware replace)**:
   - Use `:S/pattern/repl/g` for case/inflection-aware replacements (no mapping needed).
+- **Which-Key (leader menu)**:
+  - `<leader>`: Show a popup of available leader mappings.
+- **Cheat.sh (how-to snippets)**:
+  - `<leader>?`: Prompt to search cheat.sh for a snippet.
 - **Goyo (distraction-free)**:
   - `<leader>G`: Toggle Goyo mode.
 - **Floaterm (floating terminal)**:
@@ -124,7 +130,7 @@ Some of the key mappings include:
   - `<leader>l`: Toggle Limelight (enabled by default at startup).
   - `<leader>tm`: Toggle table mode.
 - **Helper**:
-  - `<leader>?`: Show the in-Vim shortcuts window.
+  - `<leader>h`: Show the in-Vim shortcuts window.
 - **Window & Tab Navigation**:
   - `<C-w> h/j/k/l`: Move between windows.
   - `gt` / `gT`: Navigate tabs.

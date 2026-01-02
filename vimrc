@@ -56,6 +56,12 @@ Plug 'tpope/vim-commentary'
 Plug 'machakann/vim-highlightedyank'
 Plug 'junegunn/limelight.vim'
 
+" Displays a popup with available keybindings when leader is pressed
+Plug 'liuchengxu/vim-which-key'
+
+" Access cheat.sh snippets (how-to code examples) directly in Vim
+Plug 'RishabhRD/vim-cheat.sh'
+
 " Live preview for :substitute commands
 Plug 'osyo-manga/vim-over'
 
@@ -177,7 +183,7 @@ function! GetStartifyHeader()
         \ l:pad . 'UP:   ' . l:uptime,
         \ l:divider,
         \ l:pad . 'CWD:  ' . getcwd(),
-        \ l:pad . 'HELP: Press <leader>? for shortcuts',
+        \ l:pad . 'HELP: <leader>h shortcuts | <leader>: which-key | <leader>?: cheat.sh',
         \ l:divider,
         \ l:pad . '',
         \ l:pad . (empty(l:fortune) ? 'Stay hungry, stay foolish.' : '"' . l:fortune . '"'),
@@ -257,6 +263,11 @@ nnoremap <leader>n :NERDTreeToggle<CR>
 nnoremap <leader>R :NERDTreeFind<CR>
 nnoremap <leader>c :NERDTreeClose<CR>
 
+" --- Which-Key (The 'What do I do next?' menu) ---
+nnoremap <silent> <leader> :WhichKey '<Space>'<CR>
+let g:which_key_hspace = 5
+let g:which_key_use_floating_win = 0 " Set to 1 if your Vim supports floating windows
+
 " --- Vim-Over (Visual Substitute) ---
 " Live preview substitute on current line
 nnoremap <leader>r :OverCommandLine<CR>%s/
@@ -294,6 +305,9 @@ nnoremap <leader>sl :SLoad<CR>
 nnoremap <leader>gg :GitGutterToggle<CR>
 nnoremap <leader>gn :GitGutterNextHunk<CR>
 nnoremap <leader>gp :GitGutterPrevHunk<CR>
+
+" --- Cheat.sh (The 'How do I code this?' menu) ---
+nnoremap <leader>? :Cheat<Space>
 
 " -- OSCYank Mappings --
 " --- Automatically copy every yank to the system clipboard via OSC 52
@@ -398,14 +412,14 @@ function! ShowCustomShortcuts()
   \ '  Targets : Smart Selecting  | in (Inside Next), il (Inside Last)',
   \ '-------------------------------------------------------------',
   \ '=== Helper',
-  \ '  <leader>?: Open this shortcuts window',
+  \ '  <leader>h: Open this shortcuts window',
   \ '-------------------------------------------------------------',
   \ 'Press Esc to close this window.'
   \ ])
   setlocal nomodifiable
   nnoremap <buffer> <Esc> :close<CR>
 endfunction
-nnoremap <leader>? :call ShowCustomShortcuts()<CR>
+nnoremap <leader>h :call ShowCustomShortcuts()<CR>
 
 " Databases
 " let g:dbs = {
