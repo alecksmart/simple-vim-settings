@@ -411,9 +411,6 @@ function! ShowCustomShortcuts()
   \ '  Surround: Change/Add Pairs | cs (Change Surround), ds (Delete Surround)',
   \ '  Targets : Smart Selecting  | in (Inside Next), il (Inside Last)',
   \ '-------------------------------------------------------------',
-  \ '=== Helper',
-  \ '  <leader>h: Open this shortcuts window',
-  \ '-------------------------------------------------------------',
   \ 'Press Esc to close this window.'
   \ ])
   setlocal nomodifiable
