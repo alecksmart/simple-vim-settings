@@ -498,8 +498,8 @@ let g:airline#extensions#tabline#formatter = 'default'
 "   let g:nightflyItalics = 1
 "   let g:airline_theme = 'nightfly'
 
+" Monokai theme, available: monokai-pro-classic, monokai-pro-machine, monokai-pro-ristretto, monokai-pro-octagon
 " colorscheme monokai-pro-classic
-"   " Also available: mmonokai-pro-classic, monokai-pro-machine, monokai-pro-ristretto, monokai-pro-octagon
 "   let g:airline_theme = 'monokai_pro'
 
 " colorscheme sonokai
