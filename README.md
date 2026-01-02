@@ -8,6 +8,8 @@ This repository contains a streamlined vim configuration with plugins and settin
 - **Popular plugins** such as:
   - [NERDTree](https://github.com/preservim/nerdtree) – File explorer.
   - [CtrlP](https://github.com/ctrlpvim/ctrlp.vim) – Fuzzy file finder.
+  - [vim-over](https://github.com/osyo-manga/vim-over) – Live preview for substitute commands.
+  - [vim-abolish](https://github.com/tpope/vim-abolish) – Case/inflection aware search and replace.
   - [vim-commentary](https://github.com/tpope/vim-commentary) – Easy commenting.
   - [vim-gitgutter](https://github.com/airblade/vim-gitgutter) – Git diff indicators.
   - [rainbow_parentheses.vim](https://github.com/kien/rainbow_parentheses.vim) – Colorful nested parentheses.
@@ -78,12 +80,16 @@ Some of the key mappings include:
 
 - **NERDTree (file explorer)**:
   - `<leader>n`: Toggle NERDTree.
-  - `<leader>r`: Reveal current file in NERDTree.
+  - `<leader>R`: Reveal current file in NERDTree.
   - `<leader>c`: Close NERDTree.
 - **CtrlP (fuzzy finder)**:
   - `<leader>f`: Open file finder.
   - `<leader>b`: Open buffer finder.
   - `<leader>m`: Open MRU list.
+- **Vim-Over (live substitute)**:
+  - `<leader>r`: Start a live preview substitute on the current line; in visual mode, runs within the selection.
+- **Abolish (smart case-aware replace)**:
+  - Use `:S/pattern/repl/g` for case/inflection-aware replacements (no mapping needed).
 - **Goyo (distraction-free)**:
   - `<leader>G`: Toggle Goyo mode.
 - **Floaterm (floating terminal)**:

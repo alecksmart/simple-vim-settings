@@ -56,6 +56,12 @@ Plug 'tpope/vim-commentary'
 Plug 'machakann/vim-highlightedyank'
 Plug 'junegunn/limelight.vim'
 
+" Live preview for :substitute commands
+Plug 'osyo-manga/vim-over'
+
+" Search and replace with smart case (handles plural/capitalization)
+Plug 'tpope/vim-abolish'
+
 " Start page :)
 Plug 'mhinz/vim-startify'
 
@@ -248,8 +254,14 @@ let g:highlightedyank_highlight_group = 'IncSearch'
 
 " --- NERDTree (File Explorer) ---
 nnoremap <leader>n :NERDTreeToggle<CR>
-nnoremap <leader>r :NERDTreeFind<CR>
+nnoremap <leader>R :NERDTreeFind<CR>
 nnoremap <leader>c :NERDTreeClose<CR>
+
+" --- Vim-Over (Visual Substitute) ---
+" Live preview substitute on current line
+nnoremap <leader>r :OverCommandLine<CR>%s/
+" Live preview substitute in visual selection
+vnoremap <leader>r :OverCommandLine<CR>s/
 
 " --- CtrlP (Fuzzy Finder) ---
 " Primary bindings for files/buffers/MRU
@@ -350,7 +362,7 @@ function! ShowCustomShortcuts()
   \ '=== NERDTree       | === CtrlP          | === Built-In Folding',
   \ '-------------------------------------------------------------',
   \ ' <leader>n: Toggle | <leader>f: Files   | za  : Toggle fold',
-  \ ' <leader>r: Find   | <leader>b: Buffers | zR  : Open all folds',
+  \ ' <leader>R: Find   | <leader>b: Buffers | zR  : Open all folds',
   \ ' <leader>c: Close  | <leader>m: MRU     | zM  : Close all folds',
   \ '-------------------------------------------------------------',
   \ '=== tpope/vim-commentary (Editing Tools)',
@@ -376,6 +388,9 @@ function! ShowCustomShortcuts()
   \ '-------------------------------------------------------------',
   \ '=== Visuals',
   \ '  <leader>l: Toggle Limelight | <leader>tm: Toggle table mode',
+  \ '-------------------------------------------------------------',
+  \ '=== Search & Replace',
+  \ '  <leader>r: Live substitute (line/visual) | :Subvert from abolish',
   \ '-------------------------------------------------------------',
   \ '=== Plugin | Key Concept | Mnemonic',
   \ '  Goyo    : Toggle UI        | <leader>G (G for Goyo/Gone)',
