@@ -20,6 +20,9 @@ Plug 'tpope/vim-fugitive'
 Plug 'mhartington/oceanic-next'
 Plug 'glepnir/oceanic-material'
 Plug 'ghifarit53/tokyonight-vim'
+Plug 'tomasr/molokai'
+Plug 'morhetz/gruvbox'
+Plug 'bluz71/vim-nightfly-colors'
 Plug 'catppuccin/vim'
 Plug 'rhysd/vim-color-spring-night'
 Plug 'phanviet/vim-monokai-pro'
@@ -462,6 +465,22 @@ let g:airline#extensions#tabline#formatter = 'default'
 "   let g:spring_night_cterm_italic = 1
 "   let g:spring_night_cterm_bold = 1
 "   let g:spring_night_highlight_terminal = 0
+
+" colorscheme molokai
+"   let g:molokai_original = 1
+"   let g:re_visual_order = 1
+"   let g:airline_theme = 'molokai'
+
+" colorscheme gruvbox
+"   set background=dark
+"   let g:gruvbox_contrast_dark = 'hard'
+"   let g:gruvbox_italic = 1
+"   let g:airline_theme = 'gruvbox'
+
+" colorscheme nightfly
+"   let g:nightflyTransparent = 0
+"   let g:nightflyItalics = 1
+"   let g:airline_theme = 'nightfly'
 
 colorscheme pink-moon
 set background=dark
