@@ -201,12 +201,13 @@ let g:startify_lists = [
 
 " 3. Bookmarks
 let g:startify_bookmarks = [
+      \ {'n': '~/bin/'},
+      \ {'p': '~/Projects/'},
       \ {'b': '~/.bashrc'},
       \ {'z': '~/.zshrc'},
       \ {'v': '~/.vimrc'},
       \ {'c': '~/.ssh/config'},
       \ {'g': '~/.config/ghostty/config'},
-      \ {'p': '~/Projects/'},
       \ ]
 
 " 4. Tweaks
@@ -468,3 +469,4 @@ let g:airline_theme = 'base16'
 
 " do not underline the current line
 highlight CursorLineNr cterm=NONE gui=NONE
+highlight CursorLine cterm=NONE gui=NONE
