@@ -59,9 +59,6 @@ Plug 'junegunn/limelight.vim'
 " Displays a popup with available keybindings when leader is pressed
 Plug 'liuchengxu/vim-which-key'
 
-" Access cheat.sh snippets (how-to code examples) directly in Vim
-Plug 'dbeniamine/cheat.sh-vim'
-
 " Live preview for :substitute commands
 Plug 'osyo-manga/vim-over'
 
@@ -183,7 +180,7 @@ function! GetStartifyHeader()
         \ l:pad . 'UP:   ' . l:uptime,
         \ l:divider,
         \ l:pad . 'CWD:  ' . getcwd(),
-        \ l:pad . 'HELP: <leader>h shortcuts | <leader>: which-key | <leader>?: cheat.sh',
+        \ l:pad . 'HELP: <leader>? shortcuts | <leader>: which-key',
         \ l:divider,
         \ l:pad . '',
         \ l:pad . (empty(l:fortune) ? 'Stay hungry, stay foolish.' : '"' . l:fortune . '"'),
@@ -306,9 +303,6 @@ nnoremap <leader>gg :GitGutterToggle<CR>
 nnoremap <leader>gn :GitGutterNextHunk<CR>
 nnoremap <leader>gp :GitGutterPrevHunk<CR>
 
-" --- Cheat.sh (The 'How do I code this?' menu) ---
-nnoremap <leader>? :Cheat<Space>
-
 " -- OSCYank Mappings --
 " --- Automatically copy every yank to the system clipboard via OSC 52
 autocmd TextYankPost * if v:event.operator is 'y' && v:event.regname is '' | execute 'OSCYankRegister "' | endif
@@ -403,9 +397,6 @@ function! ShowCustomShortcuts()
   \ '=== Visuals',
   \ '  <leader>l: Toggle Limelight | <leader>tm: Toggle table mode',
   \ '-------------------------------------------------------------',
-  \ '=== Search & Replace',
-  \ '  <leader>r: Live substitute (line/visual) | :Subvert from abolish',
-  \ '-------------------------------------------------------------',
   \ '=== Plugin | Key Concept | Mnemonic',
   \ '  Goyo    : Toggle UI        | <leader>G (G for Goyo/Gone)',
   \ '  Surround: Change/Add Pairs | cs (Change Surround), ds (Delete Surround)',
@@ -416,7 +407,7 @@ function! ShowCustomShortcuts()
   setlocal nomodifiable
   nnoremap <buffer> <Esc> :close<CR>
 endfunction
-nnoremap <leader>h :call ShowCustomShortcuts()<CR>
+nnoremap <leader>? :call ShowCustomShortcuts()<CR>
 
 " Databases
 " let g:dbs = {
