@@ -43,6 +43,7 @@ Plug 'kien/rainbow_parentheses.vim'
 Plug 'Yggdroot/indentLine'
 
 " File explorers & Finders
+Plug 'preservim/nerdtree'
 Plug 'ctrlpvim/ctrlp.vim'
 
 " Commenting
@@ -77,12 +78,6 @@ Plug 'tpope/vim-surround'
 
 " Adds more text objects like 'i,' (inside comma) or 'a;' (around semicolon)
 Plug 'wellle/targets.vim'
-
-" The fuzzy finder engine (requires 'brew install fzf' on Mac)
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-
-" Vim integration for fzf (files, buffers, history search)
-Plug 'junegunn/fzf.vim'
 
 " Distraction-free writing mode (centers text, hides UI)
 Plug 'junegunn/goyo.vim'
@@ -245,19 +240,22 @@ let g:rainbow_active = 5
 
 " IndentLine: customize indentation line character and disable for some filetypes
 let g:indentLine_char = '|'
-let g:indentLine_fileTypeExclude = ['help', 'dashboard']
+let g:indentLine_fileTypeExclude = ['help', 'nerdtree', 'dashboard']
 
 " vim-highlightedyank Configuration:
 let g:highlightedyank_highlight_duration = 400
 let g:highlightedyank_highlight_group = 'IncSearch'
 
-" --- FZF (Fuzzy Finder) ---
-" Search files with Space+f, buffers with Space+b, and history with Space+h
-nnoremap <leader>f :Files<CR>
-nnoremap <leader>b :Buffers<CR>
-nnoremap <leader>h :History<CR>
-" Search current file content (like a super grep)
-nnoremap <leader>/ :BLines<CR>
+" --- NERDTree (File Explorer) ---
+nnoremap <leader>n :NERDTreeToggle<CR>
+nnoremap <leader>r :NERDTreeFind<CR>
+nnoremap <leader>c :NERDTreeClose<CR>
+
+" --- CtrlP (Fuzzy Finder) ---
+" Primary bindings for files/buffers/MRU
+nnoremap <leader>f :CtrlP<CR>
+nnoremap <leader>b :CtrlPBuffer<CR>
+nnoremap <leader>m :CtrlPMRU<CR>
 
 " --- Goyo (Distraction Free) ---
 " Toggle clean mode with Space+G
@@ -279,12 +277,6 @@ tnoremap <Esc> <C-\><C-n>:FloatermToggle<CR>
 " -- Startify Sessions --
 nnoremap <leader>ss :SSave<CR>
 nnoremap <leader>sl :SLoad<CR>
-
-" -- CtrlP Mappings --
-" Use separate prefix to avoid clashing with FZF mappings
-nnoremap <leader>pf :CtrlP<CR>
-nnoremap <leader>pb :CtrlPBuffer<CR>
-nnoremap <leader>pm :CtrlPMRU<CR>
 
 " -- vim-gitgutter Mappings --
 nnoremap <leader>gg :GitGutterToggle<CR>
@@ -355,12 +347,11 @@ function! ShowCustomShortcuts()
   call setline(1, [
   \ 'Custom Leader Shortcut Help:',
   \ '-------------------------------------------------------------',
-  \ '=== FZF (Primary) | === CtrlP (Alt)   | === Built-In Folding',
+  \ '=== NERDTree       | === CtrlP          | === Built-In Folding',
   \ '-------------------------------------------------------------',
-  \ ' <leader>f: Files | <leader>pf: Files | za  : Toggle fold',
-  \ ' <leader>b: Buffs | <leader>pb: Buffs | zR  : Open all folds',
-  \ ' <leader>h: Hist  | <leader>pm: MRU   | zM  : Close all folds',
-  \ ' <leader>/: Lines |                   |',
+  \ ' <leader>n: Toggle | <leader>f: Files   | za  : Toggle fold',
+  \ ' <leader>r: Find   | <leader>b: Buffers | zR  : Open all folds',
+  \ ' <leader>c: Close  | <leader>m: MRU     | zM  : Close all folds',
   \ '-------------------------------------------------------------',
   \ '=== tpope/vim-commentary (Editing Tools)',
   \ '  gc: Toggle comment (normal & visual modes)',

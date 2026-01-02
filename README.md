@@ -6,6 +6,7 @@ This repository contains a streamlined vim configuration with plugins and settin
 
 - **vim-plug** – Modern, fast plugin management for vim.
 - **Popular plugins** such as:
+  - [NERDTree](https://github.com/preservim/nerdtree) – File explorer.
   - [CtrlP](https://github.com/ctrlpvim/ctrlp.vim) – Fuzzy file finder.
   - [vim-commentary](https://github.com/tpope/vim-commentary) – Easy commenting.
   - [vim-gitgutter](https://github.com/airblade/vim-gitgutter) – Git diff indicators.
@@ -36,9 +37,6 @@ This repository contains a streamlined vim configuration with plugins and settin
 - Optional but recommended: install `fortune` so the start screen can show quotes. Example installs:
   - macOS (Homebrew): `brew install fortune`
   - Debian/Ubuntu: `sudo apt-get install fortune-mod`
-- Optional but recommended: install `fzf` for the default fuzzy finder keybindings:
-  - macOS (Homebrew): `brew install fzf`
-  - Debian/Ubuntu: `sudo apt-get install fzf`
 
 ### Quick Install
 
@@ -78,11 +76,14 @@ Autocompletion is enabled **only for macOS** (intentionally). Make sure Node.js 
 
 Some of the key mappings include:
 
-- **FZF (fuzzy finder)**:
+- **NERDTree (file explorer)**:
+  - `<leader>n`: Toggle NERDTree.
+  - `<leader>r`: Reveal current file in NERDTree.
+  - `<leader>c`: Close NERDTree.
+- **CtrlP (fuzzy finder)**:
   - `<leader>f`: Open file finder.
   - `<leader>b`: Open buffer finder.
-  - `<leader>h`: View history.
-  - `<leader>/`: Search within the current buffer.
+  - `<leader>m`: Open MRU list.
 - **Goyo (distraction-free)**:
   - `<leader>G`: Toggle Goyo mode.
 - **Floaterm (floating terminal)**:
@@ -93,10 +94,6 @@ Some of the key mappings include:
 - **targets.vim**:
   - `in`: Select “inside next” object.
   - `il`: Select “inside last” object.
-- **CtrlP**:
-  - `<leader>pf`: Open file finder.
-  - `<leader>pb`: Open buffer finder.
-  - `<leader>pm`: Open MRU list.
 - **vim-commentary**:
   - `gc`: Toggle comment (works in normal and visual modes).
 - **vim-gitgutter**:
