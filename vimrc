@@ -60,7 +60,7 @@ Plug 'junegunn/limelight.vim'
 Plug 'liuchengxu/vim-which-key'
 
 " Access cheat.sh snippets (how-to code examples) directly in Vim
-Plug 'RishabhRD/vim-cheat.sh'
+Plug 'dbeniamine/cheat.sh-vim'
 
 " Live preview for :substitute commands
 Plug 'osyo-manga/vim-over'

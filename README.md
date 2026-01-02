@@ -11,7 +11,7 @@ This repository contains a streamlined vim configuration with plugins and settin
   - [vim-over](https://github.com/osyo-manga/vim-over) – Live preview for substitute commands.
   - [vim-abolish](https://github.com/tpope/vim-abolish) – Case/inflection aware search and replace.
   - [vim-which-key](https://github.com/liuchengxu/vim-which-key) – Leader-key popup hints.
-  - [vim-cheat.sh](https://github.com/RishabhRD/vim-cheat.sh) – In-editor cheat.sh lookups.
+  - [cheat.sh-vim](https://github.com/dbeniamine/cheat.sh-vim) – In-editor cheat.sh lookups.
   - [vim-commentary](https://github.com/tpope/vim-commentary) – Easy commenting.
   - [vim-gitgutter](https://github.com/airblade/vim-gitgutter) – Git diff indicators.
   - [rainbow_parentheses.vim](https://github.com/kien/rainbow_parentheses.vim) – Colorful nested parentheses.
