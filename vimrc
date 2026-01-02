@@ -200,9 +200,9 @@ let g:startify_custom_header = GetStartifyHeader()
 " Startify adds a small indent by default, so 7 spaces in the header 
 " usually results in 8 spaces for the actual items.
 let g:startify_lists = [
-      \ { 'type': 'bookmarks', 'header': ['    🔖 Bookmarks']      },
       \ { 'type': 'files',     'header': ['    🕒 Recent Files']   },
       \ { 'type': 'dir',       'header': ['    📂 Current Project'] },
+      \ { 'type': 'bookmarks', 'header': ['    🔖 Bookmarks']      },
       \ { 'type': 'sessions',  'header': ['    💾 Sessions']       },
       \ ]
 
