@@ -22,10 +22,14 @@ Plug 'glepnir/oceanic-material'
 Plug 'ghifarit53/tokyonight-vim'
 Plug 'tomasr/molokai'
 Plug 'morhetz/gruvbox'
+Plug 'nordtheme/vim'
+Plug 'sainnhe/everforest'
 Plug 'bluz71/vim-nightfly-colors'
 Plug 'catppuccin/vim'
 Plug 'rhysd/vim-color-spring-night'
+Plug 'vinitkumar/monokai-pro-vim'
 Plug 'phanviet/vim-monokai-pro'
+Plug 'sainnhe/sonokai'
 Plug 'sts10/vim-pink-moon'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
@@ -466,6 +470,18 @@ let g:airline#extensions#tabline#formatter = 'default'
 "   let g:spring_night_cterm_bold = 1
 "   let g:spring_night_highlight_terminal = 0
 
+" colorscheme nord
+"   let g:nord_italic = 1
+"   let g:nord_underline = 1
+"   let g:nord_cursor_line_number_background = 1
+"   let g:airline_theme = 'nord'
+
+" colorscheme everforest
+"   set background=dark
+"   let g:everforest_background = 'soft'
+"   let g:everforest_enable_italic = 1
+"   let g:airline_theme = 'everforest'
+
 " colorscheme molokai
 "   let g:molokai_original = 1
 "   let g:re_visual_order = 1
@@ -481,6 +497,15 @@ let g:airline#extensions#tabline#formatter = 'default'
 "   let g:nightflyTransparent = 0
 "   let g:nightflyItalics = 1
 "   let g:airline_theme = 'nightfly'
+
+" colorscheme monokai-pro-classic
+"   " Also available: monokai-pro-machine, monokai-pro-ristretto, monokai-pro-octagon
+"   let g:airline_theme = 'monokai_pro'
+
+" colorscheme sonokai
+"   let g:sonokai_style = 'shusia' " default, shusia, maia, espresso
+"   let g:sonokai_better_performance = 1
+"   let g:airline_theme = 'sonokai'
 
 colorscheme pink-moon
 set background=dark
