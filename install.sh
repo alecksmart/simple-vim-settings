@@ -28,7 +28,9 @@ curl -fLo "$VIM_DIR/autoload/plug.vim" --create-dirs "$PLUG_INSTALLER"
 
 # 4. Install/Update plugins synchronously so first run completes fully
 echo "Installing/updating vim plugins with vim-plug..."
-vim -es -u "$VIMRC_FILE" -i NONE -c "PlugInstall --sync" -c "PlugUpdate --sync" -c "qa" < /dev/null 2>/dev/null
+# Run PlugInstall first, then PlugUpdate in a separate headless pass to ensure updates apply on first run
+vim -nEs -u "$VIMRC_FILE" -i NONE +'PlugInstall --sync' +qa < /dev/null 2>/dev/null
+vim -nEs -u "$VIMRC_FILE" -i NONE +'PlugUpdate --sync' +qa < /dev/null 2>/dev/null
 
 # 5. On macOS, install Node.js if missing, then build coc.nvim and install extensions
 if [[ "$(uname)" == "Darwin" ]]; then
