@@ -532,3 +532,7 @@ let g:airline_theme = 'monokai_subtle'
 " do not underline the current line
 highlight CursorLineNr cterm=NONE gui=NONE
 highlight CursorLine cterm=NONE gui=NONE
+
+" italics
+highlight Keyword cterm=italic gui=italic
+highlight Function cterm=italic gui=italic
