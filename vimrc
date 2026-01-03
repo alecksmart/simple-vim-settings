@@ -28,7 +28,6 @@ Plug 'bluz71/vim-nightfly-colors'
 Plug 'catppuccin/vim'
 Plug 'rhysd/vim-color-spring-night'
 Plug 'vinitkumar/monokai-pro-vim'
-Plug 'phanviet/vim-monokai-pro'
 Plug 'sainnhe/sonokai'
 Plug 'sts10/vim-pink-moon'
 Plug 'vim-airline/vim-airline'
@@ -498,8 +497,15 @@ let g:airline#extensions#tabline#formatter = 'default'
 "   let g:nightflyItalics = 1
 "   let g:airline_theme = 'nightfly'
 
-" Monokai theme, available: monokai-pro-classic, monokai-pro-machine, monokai-pro-ristretto, monokai-pro-octagon
+" Monokai themes, choose one:
 " colorscheme monokai-pro-classic
+" colorscheme monokai-pro
+" colorscheme monokai-pro-classic
+" colorscheme monokai-pro-machine
+" colorscheme monokai-pro-octagon
+" colorscheme monokai-pro-ristretto
+" colorscheme monokai-pro-spectrum
+" colorscheme monokai-pro-light
 
 " colorscheme sonokai
 "   let g:sonokai_style = 'shusia' " default, shusia, maia, espresso
