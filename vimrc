@@ -508,26 +508,26 @@ let g:airline#extensions#tabline#formatter = 'default'
 " colorscheme monokai-pro
 "  let g:airline_theme = 'monokai_subtle'
 " colorscheme monokai-pro-classic
-"  let g:airline_theme = 'monokai_subtle'
+"  let g:airline_theme = 'base16'
 " colorscheme monokai-pro-machine
-"  let g:airline_theme = 'sonokai'
+"  let g:airline_theme = 'monkai_subtle'
 " colorscheme monokai-pro-octagon
 "  let g:airline_theme = 'sonokai'
-" colorscheme monokai-pro-ristretto
-"  let g:airline_theme = 'sonokai'
+"colorscheme monokai-pro-ristretto
+"  let g:airline_theme = 'base16'
 " colorscheme monokai-pro-spectrum
-"  let g:airline_theme = 'monokai_subtle'
+"  let g:airline_theme = 'sonokai'
 " colorscheme monokai-pro-light
 "  let g:airline_theme = 'base16'
 
 " colorscheme sonokai
-"   let g:sonokai_style = 'shusia' " default, shusia, maia, espresso
+"   let g:sonokai_style = 'shusia' " shusia, maia, espresso
 "   let g:sonokai_better_performance = 1
 "   let g:airline_theme = 'sonokai'
 
 colorscheme pink-moon
 set background=dark
-let g:airline_theme = 'base16'
+let g:airline_theme = 'monokai_subtle'
 
 " do not underline the current line
 highlight CursorLineNr cterm=NONE gui=NONE
