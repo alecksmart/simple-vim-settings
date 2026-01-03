@@ -459,8 +459,14 @@ let g:airline#extensions#tabline#formatter = 'default'
 "   let g:tokyonight_style = 'storm' " available: night, storm
 "   let g:tokyonight_enable_italic = 1
 
-" colorscheme catppuccin_frappe " available: frappe, latte, mocha, macchiato
-" let g:airline_theme = 'catppuccin_macchiato' " available: frappe, latte, mocha, macchiato
+"colorscheme catppuccin-latte
+"  let g:airline_theme = 'catppuccin_latte'
+"colorscheme catppuccin-frappe
+"  let g:airline_theme = 'catppuccin_frappe'
+"colorscheme catppuccin-macchiato
+"  let g:airline_theme = 'catppuccin_macchiato'
+"colorscheme catppuccin-mocha
+"  let g:airline_theme = 'catppuccin_mocha'    
 
 " colorscheme spring-night
 " let g:airline_theme = 'spring_night'
