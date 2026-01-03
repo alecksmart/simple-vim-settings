@@ -500,7 +500,6 @@ let g:airline#extensions#tabline#formatter = 'default'
 
 " Monokai theme, available: monokai-pro-classic, monokai-pro-machine, monokai-pro-ristretto, monokai-pro-octagon
 " colorscheme monokai-pro-classic
-"   let g:airline_theme = 'monokai_pro'
 
 " colorscheme sonokai
 "   let g:sonokai_style = 'shusia' " default, shusia, maia, espresso
