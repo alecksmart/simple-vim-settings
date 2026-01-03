@@ -32,6 +32,7 @@ Plug 'sainnhe/sonokai'
 Plug 'sts10/vim-pink-moon'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
+Plug 'Yavor-Ivanov/airline-monokai-subtle.vim'
 
 " Multi-cursor support
 Plug 'mg979/vim-visual-multi'
@@ -504,14 +505,20 @@ let g:airline#extensions#tabline#formatter = 'default'
 "   let g:airline_theme = 'nightfly'
 
 " Monokai themes, choose one:
-" colorscheme monokai-pro-classic
 " colorscheme monokai-pro
+"  let g:airline_theme = 'monokai_subtle'
 " colorscheme monokai-pro-classic
+"  let g:airline_theme = 'monokai_subtle'
 " colorscheme monokai-pro-machine
+"  let g:airline_theme = 'sonokai'
 " colorscheme monokai-pro-octagon
+"  let g:airline_theme = 'sonokai'
 " colorscheme monokai-pro-ristretto
+"  let g:airline_theme = 'sonokai'
 " colorscheme monokai-pro-spectrum
+"  let g:airline_theme = 'monokai_subtle'
 " colorscheme monokai-pro-light
+"  let g:airline_theme = 'base16'
 
 " colorscheme sonokai
 "   let g:sonokai_style = 'shusia' " default, shusia, maia, espresso
