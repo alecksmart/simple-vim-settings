@@ -504,7 +504,7 @@ let g:airline#extensions#tabline#formatter = 'default'
 "   let g:nightflyItalics = 1
 "   let g:airline_theme = 'nightfly'
 
-" Monokai themes, choose one:
+" Monokai themes, choose one: https://github.com/vim-airline/vim-airline/wiki/Screenshots
 " colorscheme monokai-pro
 "  let g:airline_theme = 'monokai_subtle'
 " colorscheme monokai-pro-classic
