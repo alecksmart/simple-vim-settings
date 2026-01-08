@@ -77,6 +77,8 @@ Plug 'mhinz/vim-startify'
 
 " Programming
 Plug 'sheerun/vim-polyglot'
+" GitHub Copilot
+Plug 'github/copilot.vim'
 
 " Database
 Plug 'tpope/vim-dadbod'
@@ -252,6 +254,19 @@ augroup END
 " ============================================
 " Plugin Specific Options
 " ============================================
+" Copilot (defaults; disable in sensitive/low-signal buffers)
+let g:copilot_auto_trigger = 1
+let g:copilot_filetypes = {
+      \ 'gitcommit': v:false,
+      \ 'gitrebase': v:false,
+      \ 'help': v:false,
+      \ 'man': v:false,
+      \ 'vimdoc': v:false,
+      \ }
+if exists("$SSH_CONNECTION")
+  let g:copilot_enabled = 0
+endif
+
 " Rainbow Parentheses: set max nesting level
 let g:rainbow_active = 5
 

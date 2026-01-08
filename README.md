@@ -19,6 +19,7 @@ This repository contains a streamlined vim configuration with plugins and settin
   - [vim-startify](https://github.com/mhinz/vim-startify) – Provides a customizable start screen with recent files, sessions, and bookmarks.
   - [vim-polyglot](https://github.com/sheerun/vim-polyglot) – Language pack with improved syntax and folding support.
   - [vim-oscyank](https://github.com/ojroques/vim-oscyank) – Copy over SSH/terminal using OSC52 (global clipboard-friendly).
+  - [GitHub Copilot](https://github.com/github/copilot.vim) – AI code completion inside Vim.
   - **coc.nvim** – *[macOS only]* Autocompletion and language server protocol integration for a modern coding experience.
   - Additional plugins for databases and themes are also included.
 
@@ -65,6 +66,19 @@ wget -qO- https://raw.githubusercontent.com/alecksmart/simple-vim-settings/main/
 6. Ensures the `pink-moon` colorscheme block is present at the end of `~/.vimrc` (idempotent—no duplicates on reruns).
 
 When complete, open Vim to start using the new configuration.
+
+## GitHub Copilot Setup
+
+1. Ensure Node.js 16+ is installed.
+2. Open Vim and run `:PlugInstall` if you haven't already.
+3. Run `:Copilot setup` and follow the browser sign-in flow.
+4. Optional: use `:Copilot enable` or `:Copilot disable` to toggle.
+
+Notes:
+- Copilot requires an active GitHub Copilot subscription/access.
+- The machine running Vim must have Node.js available in PATH.
+- If you're on a host without outbound access to GitHub (common over SSH), Copilot won't work.
+- Use `:Copilot status` to verify activation.
 
 ## Autocompletion
 
