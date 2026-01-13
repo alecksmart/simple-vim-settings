@@ -83,5 +83,13 @@ if ! command -v fortune >/dev/null 2>&1; then
   echo "Warning: 'fortune' is not installed. Recommended installs: 'brew install fortune' (macOS) or 'sudo apt-get install fortune-mod' (Debian/Ubuntu)."
 fi
 
+echo "Checking for autoformat tools..."
+if ! command -v shfmt >/dev/null 2>&1; then
+  echo "Warning: 'shfmt' is not installed. bash autoformat will be unavailable."
+fi
+if ! command -v prettier >/dev/null 2>&1; then
+  echo "Warning: 'prettier' is not installed. JS/TS/Markdown autoformat will be unavailable."
+fi
+
 echo "Installation complete!"
 echo "Please open Vim and enjoy your new configuration."
