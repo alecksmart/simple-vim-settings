@@ -12,7 +12,7 @@ call plug#begin('~/.vim/plugged')
 Plug 'junegunn/vim-plug'
 
 " Git & File Management
-Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-fugitive', { 'on': ['Git', 'G', 'Gstatus', 'Gdiffsplit', 'Gblame', 'Gclog', 'Glog'] }
 " Plug 'mhinz/vim-signify'
 
 " Color Schemes, Themes & Statusline
@@ -50,8 +50,8 @@ Plug 'kien/rainbow_parentheses.vim'
 Plug 'Yggdroot/indentLine'
 
 " File explorers & Finders
-Plug 'preservim/nerdtree'
-Plug 'ctrlpvim/ctrlp.vim'
+Plug 'preservim/nerdtree', { 'on': ['NERDTreeToggle', 'NERDTreeFind', 'NERDTreeClose'] }
+Plug 'ctrlpvim/ctrlp.vim', { 'on': ['CtrlP', 'CtrlPBuffer', 'CtrlPMRU'] }
 
 " Commenting
 Plug 'tpope/vim-commentary'
@@ -67,10 +67,10 @@ Plug 'junegunn/limelight.vim'
 Plug 'Chiel92/vim-autoformat'
 
 " Displays a popup with available keybindings when leader is pressed
-Plug 'liuchengxu/vim-which-key'
+Plug 'liuchengxu/vim-which-key', { 'on': 'WhichKey' }
 
 " Live preview for :substitute commands
-Plug 'osyo-manga/vim-over'
+Plug 'osyo-manga/vim-over', { 'on': 'OverCommandLine' }
 
 " Search and replace with smart case (handles plural/capitalization)
 Plug 'tpope/vim-abolish'
@@ -84,12 +84,12 @@ Plug 'sheerun/vim-polyglot'
 Plug 'github/copilot.vim'
 
 " Database
-Plug 'tpope/vim-dadbod'
-Plug 'kristijanhusak/vim-dadbod-completion'
-Plug 'kristijanhusak/vim-dadbod-ui'
+Plug 'tpope/vim-dadbod', { 'on': ['DB', 'DBUI', 'DBUIToggle', 'DBUIAddConnection', 'DBUIFindBuffer'] }
+Plug 'kristijanhusak/vim-dadbod-completion', { 'on': ['DB', 'DBUI', 'DBUIToggle', 'DBUIAddConnection', 'DBUIFindBuffer'] }
+Plug 'kristijanhusak/vim-dadbod-ui', { 'on': ['DB', 'DBUI', 'DBUIToggle', 'DBUIAddConnection', 'DBUIFindBuffer'] }
 
 " Tables
-Plug 'dhruvasagar/vim-table-mode'
+Plug 'dhruvasagar/vim-table-mode', { 'on': ['TableModeEnable', 'TableModeDisable', 'TableModeToggle'] }
 
 " Global clipboard
 Plug 'ojroques/vim-oscyank', {'branch': 'main'}
@@ -101,10 +101,10 @@ Plug 'tpope/vim-surround'
 Plug 'wellle/targets.vim'
 
 " Distraction-free writing mode (centers text, hides UI)
-Plug 'junegunn/goyo.vim'
+Plug 'junegunn/goyo.vim', { 'on': 'Goyo' }
 
 " Floating terminal window for quick shell commands
-Plug 'voldikss/vim-floaterm'
+Plug 'voldikss/vim-floaterm', { 'on': 'FloatermToggle' }
 
 " On macOS only, add coc.vim for autocompletion (release branch)
 if has("macunix")
