@@ -138,7 +138,6 @@ set hlsearch
 set incsearch
 set ignorecase
 set smartcase
-nnoremap <leader>h :nohlsearch<CR>
 
 " Folding settings (using syntax-based folding)
 set foldmethod=syntax
@@ -288,6 +287,9 @@ nnoremap <leader>c :NERDTreeClose<CR>
 nnoremap <silent> <leader> :WhichKey '<Space>'<CR>
 let g:which_key_hspace = 5
 let g:which_key_use_floating_win = 0 " Set to 1 if your Vim supports floating windows
+let g:which_key_map = get(g:, 'which_key_map', {})
+let g:which_key_map.h = [':nohlsearch', 'Clear search highlight']
+call which_key#register('<Space>', 'g:which_key_map')
 
 " --- Vim-Over (Visual Substitute) ---
 " Live preview substitute on current line
@@ -317,6 +319,8 @@ tnoremap <Esc> <C-\><C-n>:FloatermToggle<CR>
 " ============================================
 " Custom Mappings
 " ============================================
+" -- Search --
+nnoremap <leader>h :nohlsearch<CR>
 
 " -- Startify Sessions --
 nnoremap <leader>ss :SSave<CR>
