@@ -12,7 +12,7 @@ call plug#begin('~/.vim/plugged')
 Plug 'junegunn/vim-plug'
 
 " Git & File Management
-Plug 'tpope/vim-fugitive', { 'on': ['Git', 'G', 'Gstatus', 'Gdiffsplit', 'Gblame', 'Gclog', 'Glog'] }
+Plug 'tpope/vim-fugitive', { 'on': ['Git', 'G', 'Gdiffsplit', 'Gclog', 'Glog'] }
 " Plug 'mhinz/vim-signify'
 
 " Color Schemes, Themes & Statusline
@@ -432,8 +432,8 @@ function! ShowCustomShortcuts()
   \ '  <leader>gg: Toggle signs  | <leader>gn: Next hunk | <leader>gp: Prev hunk',
   \ '-------------------------------------------------------------',
   \ '=== vim-fugitive (Git Tools)',
-  \ '  :Git blame : Blame file  | :0Gclog : File history',
-  \ '  :Glog      : Repo log    | :Gstatus: Status',
+  \ '  :Git blame : Blame file  | :0Gclog    : File history',
+  \ '  :Git log   : Repo log    | :Git status: Status',
   \ '  :Gdiffsplit: Diff split  | :cclose or :q: Close log window',
   \ '-------------------------------------------------------------',
   \ '=== Startify Sessions',
