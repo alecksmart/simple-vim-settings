@@ -138,6 +138,7 @@ set hlsearch
 set incsearch
 set ignorecase
 set smartcase
+nnoremap <leader>h :nohlsearch<CR>
 
 " Folding settings (using syntax-based folding)
 set foldmethod=syntax
