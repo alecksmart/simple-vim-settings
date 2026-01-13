@@ -34,6 +34,7 @@ This repository contains a streamlined vim configuration with plugins and settin
 - On **macOS**:
   - If Node.js is not installed, the script will automatically install it via Homebrew (without prompt).
   - If Homebrew itself is not installed, please install Homebrew first:
+
     ```bash
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
     ```
@@ -41,6 +42,9 @@ This repository contains a streamlined vim configuration with plugins and settin
 - Optional but recommended: install `fortune` so the start screen can show quotes. Example installs:
   - macOS (Homebrew): `brew install fortune`
   - Debian/Ubuntu: `sudo apt-get install fortune-mod`
+- Optional: install formatters used by `:Autoformat`:
+  - `shfmt` for bash files
+  - `prettier` for JavaScript/TypeScript/Markdown
 
 ### Quick Install
 
@@ -75,6 +79,7 @@ When complete, open Vim to start using the new configuration.
 4. Optional: use `:Copilot enable` or `:Copilot disable` to toggle.
 
 Notes:
+
 - Copilot requires an active GitHub Copilot subscription/access.
 - The machine running Vim must have Node.js available in PATH.
 - If you're on a host without outbound access to GitHub (common over SSH), Copilot won't work.

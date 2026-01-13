@@ -63,6 +63,9 @@ Plug 'tpope/vim-commentary'
 Plug 'machakann/vim-highlightedyank'
 Plug 'junegunn/limelight.vim'
 
+" Autoformatting
+Plug 'Chiel92/vim-autoformat'
+
 " Displays a popup with available keybindings when leader is pressed
 Plug 'liuchengxu/vim-which-key'
 
@@ -278,6 +281,24 @@ let g:indentLine_fileTypeExclude = ['help', 'nerdtree', 'dashboard']
 let g:highlightedyank_highlight_duration = 400
 let g:highlightedyank_highlight_group = 'IncSearch'
 
+" vim-autoformat (external formatters required)
+let g:formatdef_shfmt = '"shfmt -i 2 -ci -bn -sr"'
+let g:formatdef_prettier = '"prettier --stdin-filepath " . expand("%:p")'
+let g:formatters_sh = ['shfmt']
+let g:formatters_bash = ['shfmt']
+let g:formatters_javascript = ['prettier']
+let g:formatters_typescript = ['prettier']
+let g:formatters_markdown = ['prettier']
+if !exists('g:autoformat_checked')
+  let g:autoformat_checked = 1
+  if !executable('shfmt')
+    echohl WarningMsg | echom 'vim-autoformat: shfmt not found (bash formatting disabled)' | echohl None
+  endif
+  if !executable('prettier')
+    echohl WarningMsg | echom 'vim-autoformat: prettier not found (js/ts/markdown formatting disabled)' | echohl None
+  endif
+endif
+
 " --- NERDTree (File Explorer) ---
 nnoremap <leader>n :NERDTreeToggle<CR>
 nnoremap <leader>R :NERDTreeFind<CR>
@@ -289,6 +310,7 @@ let g:which_key_hspace = 5
 let g:which_key_use_floating_win = 0 " Set to 1 if your Vim supports floating windows
 let g:which_key_map = get(g:, 'which_key_map', {})
 let g:which_key_map.h = [':nohlsearch', 'Clear search highlight']
+let g:which_key_map.A = [':Autoformat', 'Autoformat file']
 call which_key#register('<Space>', 'g:which_key_map')
 
 " --- Vim-Over (Visual Substitute) ---
@@ -321,6 +343,8 @@ tnoremap <Esc> <C-\><C-n>:FloatermToggle<CR>
 " ============================================
 " -- Search --
 nnoremap <leader>h :nohlsearch<CR>
+" -- Autoformat --
+nnoremap <leader>A :Autoformat<CR>
 
 " -- Startify Sessions --
 nnoremap <leader>ss :SSave<CR>
@@ -429,6 +453,10 @@ function! ShowCustomShortcuts()
   \ '-------------------------------------------------------------',
   \ '=== Visuals',
   \ '  <leader>l: Toggle Limelight | <leader>tm: Toggle table mode',
+  \ '-------------------------------------------------------------',
+  \ '=== Indentation/Formatting',
+  \ '  == / =: Reindent line/selection | gg=G: Reindent file',
+  \ '  :Autoformat: Format file',
   \ '-------------------------------------------------------------',
   \ '=== Plugin | Key Concept | Mnemonic',
   \ '  Goyo    : Toggle UI        | <leader>G (G for Goyo/Gone)',
