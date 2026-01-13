@@ -67,7 +67,7 @@ Plug 'junegunn/limelight.vim'
 Plug 'Chiel92/vim-autoformat'
 
 " Displays a popup with available keybindings when leader is pressed
-Plug 'liuchengxu/vim-which-key', { 'on': 'WhichKey' }
+Plug 'liuchengxu/vim-which-key'
 
 " Live preview for :substitute commands
 Plug 'osyo-manga/vim-over', { 'on': 'OverCommandLine' }
