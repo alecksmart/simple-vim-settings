@@ -45,6 +45,9 @@ fi
 if ! command -v prettier >/dev/null 2>&1; then
   echo "Warning: 'prettier' is not installed. JS/TS/Markdown autoformat will be unavailable."
 fi
+if ! command -v fzf >/dev/null 2>&1; then
+  echo "Warning: 'fzf' is not installed. Fuzzy finder features will be unavailable."
+fi
 
 # 5. Install/Update plugins synchronously so first run completes fully
 echo "Installing/updating vim plugins with vim-plug..."
