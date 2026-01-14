@@ -50,7 +50,6 @@ Plug 'kien/rainbow_parentheses.vim'
 Plug 'Yggdroot/indentLine'
 
 " File explorers & Finders
-Plug 'preservim/nerdtree', { 'on': ['NERDTreeToggle', 'NERDTreeFind', 'NERDTreeClose'] }
 Plug 'ctrlpvim/ctrlp.vim', { 'on': ['CtrlP', 'CtrlPBuffer', 'CtrlPMRU'] }
 
 " Commenting
@@ -285,7 +284,7 @@ let g:rainbow_active = 5
 
 " IndentLine: customize indentation line character and disable for some filetypes
 let g:indentLine_char = '|'
-let g:indentLine_fileTypeExclude = ['help', 'nerdtree', 'dashboard']
+let g:indentLine_fileTypeExclude = ['help', 'dashboard']
 
 " vim-highlightedyank Configuration:
 let g:highlightedyank_highlight_duration = 400
@@ -308,11 +307,6 @@ if !exists('g:autoformat_checked')
     echohl WarningMsg | echom 'vim-autoformat: prettier not found (js/ts/markdown formatting disabled)' | echohl None
   endif
 endif
-
-" --- NERDTree (File Explorer) ---
-nnoremap <leader>n :NERDTreeToggle<CR>
-nnoremap <leader>R :NERDTreeFind<CR>
-nnoremap <leader>c :NERDTreeClose<CR>
 
 " --- Which-Key (The 'What do I do next?' menu) ---
 nnoremap <silent> <leader> :WhichKey '<Space>'<CR>
@@ -429,11 +423,11 @@ function! ShowCustomShortcuts()
   call setline(1, [
   \ 'Custom Leader Shortcut Help:',
   \ '-------------------------------------------------------------',
-  \ '=== NERDTree       | === CtrlP          | === Built-In Folding',
+  \ '=== CtrlP          | === Built-In Folding',
   \ '-------------------------------------------------------------',
-  \ ' <leader>n: Toggle | <leader>f: Files   | za  : Toggle fold',
-  \ ' <leader>R: Find   | <leader>b: Buffers | zR  : Open all folds',
-  \ ' <leader>c: Close  | <leader>m: MRU     | zM  : Close all folds',
+  \ ' <leader>f: Files   | za  : Toggle fold',
+  \ ' <leader>b: Buffers | zR  : Open all folds',
+  \ ' <leader>m: MRU     | zM  : Close all folds',
   \ '-------------------------------------------------------------',
   \ '=== tpope/vim-commentary (Editing Tools)',
   \ '  gc: Toggle comment (normal & visual modes)',
