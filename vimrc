@@ -340,6 +340,17 @@ vnoremap <leader>r :OverCommandLine<CR>s/
 nnoremap <leader>f :Files<CR>
 nnoremap <leader>b :Buffers<CR>
 nnoremap <leader>m :History<CR>
+" Ripgrep with fzf + bat preview
+if executable('rg')
+  command! -nargs=+ -bang Rg call fzf#vim#grep(
+        \ 'rg --column --line-number --no-heading --color=always --smart-case -- ' . shellescape(<q-args>),
+        \ 1,
+        \ fzf#vim#with_preview({'options': '--delimiter : --nth 4..'}),
+        \ <bang>0)
+else
+  command! -nargs=+ Rg echohl WarningMsg | echom 'rg not found (ripgrep search unavailable)' | echohl None
+endif
+nnoremap <leader>g :Rg<Space>
 
 " --- Goyo (Distraction Free) ---
 " Toggle clean mode with Space+G
@@ -440,6 +451,7 @@ function! ShowCustomShortcuts()
   \ ' <leader>f: Files   | za  : Toggle fold',
   \ ' <leader>b: Buffers | zR  : Open all folds',
   \ ' <leader>m: History | zM  : Close all folds',
+  \ ' <leader>g: Ripgrep',
   \ '-------------------------------------------------------------',
   \ '=== tpope/vim-commentary (Editing Tools)',
   \ '  gc: Toggle comment (normal & visual modes)',

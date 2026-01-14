@@ -51,6 +51,9 @@ fi
 if ! command -v bat >/dev/null 2>&1 && ! command -v batcat >/dev/null 2>&1; then
   echo "Warning: 'bat' is not installed. FZF preview will fall back to plain text."
 fi
+if ! command -v rg >/dev/null 2>&1; then
+  echo "Warning: 'rg' is not installed. FZF ripgrep search will be unavailable."
+fi
 
 # 5. Install/Update plugins synchronously so first run completes fully
 echo "Installing/updating vim plugins with vim-plug..."

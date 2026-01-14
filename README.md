@@ -47,6 +47,7 @@ This repository contains a streamlined vim configuration with plugins and settin
   - `prettier` for JavaScript/TypeScript/Markdown
 - Optional: install `fzf` for the best fuzzy-finder experience (the vim plugin can also install its own binary).
 - Optional: install `bat` (or `batcat` on Debian/Ubuntu) for file previews in fzf.
+- Optional: install `rg` (ripgrep) for fast full-text search with fzf.
 
 ### Quick Install
 
@@ -115,6 +116,7 @@ Some of the key mappings include:
   - `<leader>f`: Open file finder.
   - `<leader>b`: Open buffer finder.
   - `<leader>m`: Open file history list.
+  - `<leader>g`: Ripgrep search with preview.
 - **Vim-Over (live substitute)**:
   - `<leader>r`: Start a live preview substitute on the current line; in visual mode, runs within the selection.
 - **Abolish (smart case-aware replace)**:
