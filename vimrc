@@ -158,6 +158,16 @@ set clipboard=
 " Cursor Line Highlighting
 set cursorline
 
+" Reload files changed outside Vim and check even when idle
+set autoread
+set updatetime=1000
+augroup autoread_check
+  autocmd!
+  autocmd FocusGained,BufEnter * checktime
+  autocmd CursorHold,CursorHoldI * checktime
+  autocmd FileChangedShellPost * echohl WarningMsg | echom 'File changed on disk. Buffer reloaded.' | echohl None
+augroup END
+
 " Cursor style settings for GUI and terminal (if supported)
 set guicursor=n-v-c:block,i:ver25
 if exists('&t_SI')
