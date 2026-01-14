@@ -376,6 +376,7 @@ nnoremap <leader>A :Autoformat<CR>
 " -- Startify Sessions --
 nnoremap <leader>ss :SSave<CR>
 nnoremap <leader>sl :SLoad<CR>
+nnoremap <leader>H :Startify<CR>
 
 " -- vim-gitgutter Mappings --
 nnoremap <leader>gg :GitGutterToggle<CR>
@@ -469,6 +470,7 @@ function! ShowCustomShortcuts()
   \ '-------------------------------------------------------------',
   \ '=== Startify Sessions',
   \ '  <leader>ss: Save session  | <leader>sl: Load session',
+  \ '  <leader>H : Startify home',
   \ '  :SDelete {name}: Delete session | :Startify: Open start screen',
   \ '  :SClose: Close current session',
   \ '-------------------------------------------------------------',
