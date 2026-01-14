@@ -1,6 +1,17 @@
 #!/usr/bin/env bash
 set -e
 
+# Prevent running as root; re-exec as the invoking user if possible.
+if [ "$(id -u)" -eq 0 ]; then
+  if [ -n "$SUDO_USER" ] && [ "$SUDO_USER" != "root" ]; then
+    echo "Root detected. Re-running as $SUDO_USER..."
+    CURRENT_DIR="$(pwd)"
+    exec sudo -u "$SUDO_USER" -H bash -c 'cd "$1" && shift && exec "$@"' _ "$CURRENT_DIR" "$0" "$@"
+  fi
+  echo "Error: Do not run this installer as root. Use a regular user account."
+  exit 1
+fi
+
 # Variables
 VIMRC_FILE="$HOME/.vimrc"
 VIM_DIR="$HOME/.vim"
