@@ -50,6 +50,8 @@ Plug 'kien/rainbow_parentheses.vim'
 Plug 'Yggdroot/indentLine'
 
 " File explorers & Finders
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
 Plug 'ctrlpvim/ctrlp.vim', { 'on': ['CtrlP', 'CtrlPBuffer', 'CtrlPMRU'] }
 
 " Commenting
@@ -323,11 +325,11 @@ nnoremap <leader>r :OverCommandLine<CR>%s/
 " Live preview substitute in visual selection
 vnoremap <leader>r :OverCommandLine<CR>s/
 
-" --- CtrlP (Fuzzy Finder) ---
-" Primary bindings for files/buffers/MRU
-nnoremap <leader>f :CtrlP<CR>
-nnoremap <leader>b :CtrlPBuffer<CR>
-nnoremap <leader>m :CtrlPMRU<CR>
+" --- FZF (Fuzzy Finder) ---
+" Primary bindings for files/buffers/history
+nnoremap <leader>f :Files<CR>
+nnoremap <leader>b :Buffers<CR>
+nnoremap <leader>m :History<CR>
 
 " --- Goyo (Distraction Free) ---
 " Toggle clean mode with Space+G
@@ -423,11 +425,11 @@ function! ShowCustomShortcuts()
   call setline(1, [
   \ 'Custom Leader Shortcut Help:',
   \ '-------------------------------------------------------------',
-  \ '=== CtrlP          | === Built-In Folding',
+  \ '=== FZF            | === Built-In Folding',
   \ '-------------------------------------------------------------',
   \ ' <leader>f: Files   | za  : Toggle fold',
   \ ' <leader>b: Buffers | zR  : Open all folds',
-  \ ' <leader>m: MRU     | zM  : Close all folds',
+  \ ' <leader>m: History | zM  : Close all folds',
   \ '-------------------------------------------------------------',
   \ '=== tpope/vim-commentary (Editing Tools)',
   \ '  gc: Toggle comment (normal & visual modes)',

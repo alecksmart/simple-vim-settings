@@ -6,6 +6,7 @@ This repository contains a streamlined vim configuration with plugins and settin
 
 - **vim-plug** – Modern, fast plugin management for vim.
 - **Popular plugins** such as:
+  - [fzf.vim](https://github.com/junegunn/fzf.vim) – Fuzzy finder powered by fzf.
   - [CtrlP](https://github.com/ctrlpvim/ctrlp.vim) – Fuzzy file finder.
   - [vim-over](https://github.com/osyo-manga/vim-over) – Live preview for substitute commands.
   - [vim-abolish](https://github.com/tpope/vim-abolish) – Case/inflection aware search and replace.
@@ -44,6 +45,7 @@ This repository contains a streamlined vim configuration with plugins and settin
 - Optional: install formatters used by `:Autoformat`:
   - `shfmt` for bash files
   - `prettier` for JavaScript/TypeScript/Markdown
+- Optional: install `fzf` for the best fuzzy-finder experience (the vim plugin can also install its own binary).
 
 ### Quick Install
 
@@ -108,10 +110,10 @@ Autocompletion is enabled **only for macOS** (intentionally). Make sure Node.js 
 
 Some of the key mappings include:
 
-- **CtrlP (fuzzy finder)**:
+- **FZF (fuzzy finder)**:
   - `<leader>f`: Open file finder.
   - `<leader>b`: Open buffer finder.
-  - `<leader>m`: Open MRU list.
+  - `<leader>m`: Open file history list.
 - **Vim-Over (live substitute)**:
   - `<leader>r`: Start a live preview substitute on the current line; in visual mode, runs within the selection.
 - **Abolish (smart case-aware replace)**:
