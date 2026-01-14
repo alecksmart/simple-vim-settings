@@ -310,6 +310,16 @@ if !exists('g:autoformat_checked')
   endif
 endif
 
+" FZF: use bat for previews when available (fallback to sed)
+if executable('bat')
+  let g:fzf_preview_command = 'bat --style=numbers --color=always --line-range :300 {}'
+elseif executable('batcat')
+  let g:fzf_preview_command = 'batcat --style=numbers --color=always --line-range :300 {}'
+else
+  let g:fzf_preview_command = 'sed -n "1,300p" {}'
+endif
+let g:fzf_preview_window = ['right:50%', 'ctrl-/']
+
 " --- Which-Key (The 'What do I do next?' menu) ---
 nnoremap <silent> <leader> :WhichKey '<Space>'<CR>
 let g:which_key_hspace = 5

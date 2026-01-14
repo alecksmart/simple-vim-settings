@@ -48,6 +48,9 @@ fi
 if ! command -v fzf >/dev/null 2>&1; then
   echo "Warning: 'fzf' is not installed. Fuzzy finder features will be unavailable."
 fi
+if ! command -v bat >/dev/null 2>&1 && ! command -v batcat >/dev/null 2>&1; then
+  echo "Warning: 'bat' is not installed. FZF preview will fall back to plain text."
+fi
 
 # 5. Install/Update plugins synchronously so first run completes fully
 echo "Installing/updating vim plugins with vim-plug..."

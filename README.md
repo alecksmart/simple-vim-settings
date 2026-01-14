@@ -46,6 +46,7 @@ This repository contains a streamlined vim configuration with plugins and settin
   - `shfmt` for bash files
   - `prettier` for JavaScript/TypeScript/Markdown
 - Optional: install `fzf` for the best fuzzy-finder experience (the vim plugin can also install its own binary).
+- Optional: install `bat` (or `batcat` on Debian/Ubuntu) for file previews in fzf.
 
 ### Quick Install
 
