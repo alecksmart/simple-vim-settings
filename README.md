@@ -71,6 +71,17 @@ wget -qO- https://raw.githubusercontent.com/alecksmart/simple-vim-settings/main/
 
 When complete, open Vim to start using the new configuration.
 
+## Root Usage (Optional)
+
+If you want `root` to use the same Vim settings and plugins as a regular user, you can link root's Vim config to the user's config:
+
+```bash
+ln -sfn /home/<user>/.vimrc /root/.vimrc
+ln -sfn /home/<user>/.vim /root/.vim
+```
+
+This keeps `sudo vim` and `root` Vim sessions consistent with the user's settings and installed plugins.
+
 ## GitHub Copilot Setup
 
 1. Ensure Node.js 16+ is installed.
