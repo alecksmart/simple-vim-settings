@@ -26,13 +26,22 @@ echo "New vimrc saved to $VIMRC_FILE."
 echo "Installing vim-plug..."
 curl -fLo "$VIM_DIR/autoload/plug.vim" --create-dirs "$PLUG_INSTALLER"
 
-# 4. Install/Update plugins synchronously so first run completes fully
+# 4. Check for optional tools early so warnings still appear if later steps fail
+echo "Checking for autoformat tools..."
+if ! command -v shfmt >/dev/null 2>&1; then
+  echo "Warning: 'shfmt' is not installed. bash autoformat will be unavailable."
+fi
+if ! command -v prettier >/dev/null 2>&1; then
+  echo "Warning: 'prettier' is not installed. JS/TS/Markdown autoformat will be unavailable."
+fi
+
+# 5. Install/Update plugins synchronously so first run completes fully
 echo "Installing/updating vim plugins with vim-plug..."
 # Run PlugInstall first, then PlugUpdate in a separate headless pass to ensure updates apply on first run
 vim -nEs -u "$VIMRC_FILE" -i NONE +'PlugInstall --sync' +qa < /dev/null 2>/dev/null
 vim -nEs -u "$VIMRC_FILE" -i NONE +'PlugUpdate --sync' +qa < /dev/null 2>/dev/null
 
-# 5. On macOS, install Node.js if missing, then build coc.nvim and install extensions
+# 6. On macOS, install Node.js if missing, then build coc.nvim and install extensions
 if [[ "$(uname)" == "Darwin" ]]; then
   echo "Detected macOS, checking for Node.js..."
   if ! command -v node >/dev/null 2>&1; then
@@ -56,7 +65,7 @@ if [[ "$(uname)" == "Darwin" ]]; then
   vim -c "CocInstall -sync coc-html coc-css coc-tsserver coc-json coc-eslint" -c "qall" < /dev/null 2>/dev/null
 fi
 
-# 6. Append colorscheme settings to the end of .vimrc
+# 7. Append colorscheme settings to the end of .vimrc
 echo "Ensuring colorscheme lines are present in $VIMRC_FILE..."
 if ! grep -q "colorscheme pink-moon" "$VIMRC_FILE"; then
   {
@@ -67,7 +76,7 @@ if ! grep -q "colorscheme pink-moon" "$VIMRC_FILE"; then
   } >> "$VIMRC_FILE"
 fi
 
-# 7. Ensure tmux clipboard support is configured once
+# 8. Ensure tmux clipboard support is configured once
 TMUX_CONF="$HOME/.tmux.conf"
 TMUX_CLIPBOARD_SETTING="set -s set-clipboard on"
 echo "Ensuring tmux clipboard setting is present in $TMUX_CONF..."
@@ -81,14 +90,6 @@ fi
 echo "Checking for 'fortune'..."
 if ! command -v fortune >/dev/null 2>&1; then
   echo "Warning: 'fortune' is not installed. Recommended installs: 'brew install fortune' (macOS) or 'sudo apt-get install fortune-mod' (Debian/Ubuntu)."
-fi
-
-echo "Checking for autoformat tools..."
-if ! command -v shfmt >/dev/null 2>&1; then
-  echo "Warning: 'shfmt' is not installed. bash autoformat will be unavailable."
-fi
-if ! command -v prettier >/dev/null 2>&1; then
-  echo "Warning: 'prettier' is not installed. JS/TS/Markdown autoformat will be unavailable."
 fi
 
 echo "Installation complete!"
